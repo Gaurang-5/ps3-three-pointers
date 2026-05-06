@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import useSWR from 'swr';
 import dynamic from 'next/dynamic';
 import GlassCard from '@/components/ui/GlassCard';
-import { formatPercent } from '@/lib/formatters';
 
 const CandlestickChart3D = dynamic(() => import('@/components/three/CandlestickChart3D'), { ssr: false });
 const fetcher = (url: string) => fetch(url).then(r => r.json());

@@ -38,7 +38,7 @@ body {
 }
 
 /* Typography Rules */
-.number, .price, .metric { font-family: 'JetBrains Mono', monospace; }
+.number, .price, .metric { font-family: var(--font-jetbrains-mono), monospace; }
 h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
 h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; }
 .label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }

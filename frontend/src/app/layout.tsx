@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
+import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Sidebar from '@/components/ui/Sidebar';
 import TopBar from '@/components/ui/TopBar';
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+});
 
 export const metadata: Metadata = {
   title: 'HedgeSim — Hedge Fund Trading Dashboard',
@@ -10,13 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`dark ${jetbrainsMono.variable}`}>
       <body style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
         <Sidebar />
         <TopBar />

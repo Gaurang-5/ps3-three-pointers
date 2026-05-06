@@ -8,6 +8,12 @@ import { formatPercent, formatShortDate } from '@/lib/formatters';
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
+type DeltaType = 'positive' | 'negative' | 'neutral';
+type PortfolioApiRow = {
+  Date: string;
+  Total_Value: number | string;
+};
+
 export default function PerformancePage() {
   const { data: metrics } = useSWR('/api/metrics', fetcher);
   const { data: portfolio } = useSWR('/api/portfolio', fetcher);
@@ -15,11 +21,11 @@ export default function PerformancePage() {
   const m = metrics ?? {};
 
   const chartData = Array.isArray(portfolio)
-    ? portfolio.map((r: any, i: number, arr: any[]) => {
-        const val = parseFloat(r.Total_Value);
-        const prev = i > 0 ? parseFloat(arr[i - 1].Total_Value) : val;
+    ? portfolio.map((r: PortfolioApiRow, i: number, arr: PortfolioApiRow[]) => {
+        const val = Number(r.Total_Value);
+        const prev = i > 0 ? Number(arr[i - 1].Total_Value) : val;
         const ret = (val - prev) / prev;
-        const initial = parseFloat(arr[0].Total_Value);
+        const initial = Number(arr[0].Total_Value);
         return {
           date: formatShortDate(r.Date),
           portfolioValue: val,
@@ -29,13 +35,17 @@ export default function PerformancePage() {
       })
     : [];
 
+  const getDeltaType = (value: number, positiveThreshold = 0): DeltaType => (
+    value > positiveThreshold ? 'positive' : 'negative'
+  );
+
   const metricCards = [
-    { label: 'Sharpe Ratio', value: (m['Sharpe Ratio'] ?? 0).toFixed(2), sublabel: 'Annualized', deltaType: m['Sharpe Ratio'] > 1 ? 'positive' : 'negative' as any },
-    { label: 'Alpha', value: formatPercent(m['Alpha'] ?? 0), sublabel: 'vs benchmark', deltaType: (m['Alpha'] ?? 0) > 0 ? 'positive' : 'negative' as any },
-    { label: 'Beta', value: (m['Beta'] ?? 0).toFixed(3), sublabel: 'Market correlation', deltaType: 'neutral' as any },
-    { label: 'Ann. Return', value: formatPercent(m['Total Return'] ?? 0), sublabel: 'Cumulative', deltaType: (m['Total Return'] ?? 0) > 0 ? 'positive' : 'negative' as any },
-    { label: 'Ann. Volatility', value: '15.2%', sublabel: 'Estimated', deltaType: 'neutral' as any },
-    { label: 'Max Drawdown', value: formatPercent(m['Max Drawdown'] ?? 0), sublabel: 'Peak to trough', deltaType: 'negative' as any },
+    { label: 'Sharpe Ratio', value: (m['Sharpe Ratio'] ?? 0).toFixed(2), sublabel: 'Annualized', deltaType: getDeltaType(m['Sharpe Ratio'] ?? 0, 1) },
+    { label: 'Alpha', value: formatPercent(m['Alpha'] ?? 0), sublabel: 'vs benchmark', deltaType: getDeltaType(m['Alpha'] ?? 0) },
+    { label: 'Beta', value: (m['Beta'] ?? 0).toFixed(3), sublabel: 'Market correlation', deltaType: 'neutral' as const },
+    { label: 'Ann. Return', value: formatPercent(m['Total Return'] ?? 0), sublabel: 'Cumulative', deltaType: getDeltaType(m['Total Return'] ?? 0) },
+    { label: 'Ann. Volatility', value: '15.2%', sublabel: 'Estimated', deltaType: 'neutral' as const },
+    { label: 'Max Drawdown', value: formatPercent(m['Max Drawdown'] ?? 0), sublabel: 'Peak to trough', deltaType: 'negative' as const },
   ];
 
   return (

@@ -1,6 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
-import { useAppStore } from '@/lib/store';
+import React from 'react';
 
 interface MetricCardProps {
   label: string;

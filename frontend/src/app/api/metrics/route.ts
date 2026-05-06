@@ -18,7 +18,7 @@ export async function GET() {
     }
     const raw = fs.readFileSync(filePath, 'utf-8');
     return NextResponse.json(JSON.parse(raw));
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'Failed to load metrics' }, { status: 500 });
   }
 }

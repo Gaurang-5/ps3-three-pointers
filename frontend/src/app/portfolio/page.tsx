@@ -13,7 +13,6 @@ const COLORS = ['#00D4AA', '#FF9F0A', '#32D74B', '#FF375F', '#8A8A8E'];
 
 export default function PortfolioPage() {
   const { data: portfolio } = useSWR('/api/portfolio', fetcher);
-  const { data: metrics } = useSWR('/api/metrics', fetcher);
   const { data: signals } = useSWR('/api/signals', fetcher);
 
   const latest = Array.isArray(portfolio) ? portfolio.at(-1) : null;
@@ -37,7 +36,7 @@ export default function PortfolioPage() {
       const initialPrice = parseFloat(first?.[`${asset}_Price`]) || price;
       const assetPnl = initialPrice > 0 ? (price - initialPrice) / initialPrice : 0;
       const val = shares * price;
-      
+
       if (val > 10) {
         donutData.push({ name: asset, value: val });
         assets.push({ ticker: asset, weight: val / totalValue, pnl: assetPnl, signal: getLatestSignal(asset) });
@@ -81,7 +80,7 @@ export default function PortfolioPage() {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(v: number) => formatCurrency(v)}
+                  formatter={(v) => formatCurrency(Number(v ?? 0))}
                   contentStyle={{ background: '#111', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12 }}
                   labelStyle={{ color: '#8A8A8E' }}
                 />
@@ -109,7 +108,7 @@ export default function PortfolioPage() {
                     </td>
                     <td className="px-4 py-3">
                       <span className="px-2 py-0.5 rounded text-[10px] font-medium"
-                        style={{ 
+                        style={{
                           background: a.signal === 'BUY' ? 'rgba(52,199,89,0.12)' : a.signal === 'SELL' ? 'rgba(255,59,48,0.12)' : 'var(--accent-dim)',
                           color: a.signal === 'BUY' ? 'var(--gain)' : a.signal === 'SELL' ? 'var(--loss)' : 'var(--accent)'
                         }}>

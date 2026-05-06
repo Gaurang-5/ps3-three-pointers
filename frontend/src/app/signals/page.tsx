@@ -3,9 +3,28 @@ import { motion } from 'framer-motion';
 import useSWR from 'swr';
 import { useState } from 'react';
 import GlassCard from '@/components/ui/GlassCard';
-import { formatShortDate } from '@/lib/formatters';
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
+
+type SignalEvent = {
+  date: string;
+  ticker: string;
+  signal: 'BUY' | 'SELL' | 'HOLD' | string;
+  composite_score?: number | string;
+};
+
+type TradeEvent = {
+  event_type: string;
+  date: string;
+  ticker: string;
+  action: 'BUY' | 'SELL' | string;
+  shares?: number | string;
+  price?: number | string;
+  costs?: {
+    commission?: number | string;
+    slippage?: number | string;
+  };
+};
 
 function SignalBadge({ signal }: { signal: string }) {
   const color = signal === 'BUY' ? 'var(--gain)' : signal === 'SELL' ? 'var(--loss)' : 'var(--text-tertiary)';
@@ -24,11 +43,11 @@ export default function SignalsPage() {
   const [filter, setFilter] = useState<'ALL' | 'BUY' | 'SELL' | 'HOLD'>('ALL');
 
   const filteredSignals = Array.isArray(signals)
-    ? signals.filter((s: any) => filter === 'ALL' || s.signal === filter)
+    ? (signals as SignalEvent[]).filter((s) => filter === 'ALL' || s.signal === filter)
     : [];
 
   const filteredTrades = Array.isArray(trades)
-    ? trades.filter((t: any) => {
+    ? (trades as TradeEvent[]).filter((t) => {
         if (t.event_type !== 'TRADE_EXECUTED') return false;
         return filter === 'ALL' || t.action === filter;
       })
@@ -65,15 +84,15 @@ export default function SignalsPage() {
             {['Equity'].map(ticker => (
               <div key={ticker} className="flex items-center gap-1">
                 <span className="number text-xs w-14 flex-shrink-0" style={{ color: 'var(--text-secondary)' }}>{ticker}</span>
-                {filteredSignals.slice(0, 30).map((s: any, i: number) => {
-                  const score = Math.abs(parseFloat(s.composite_score ?? '0'));
+                {filteredSignals.slice(0, 30).map((s, i: number) => {
+                  const score = Math.abs(Number(s.composite_score ?? 0));
                   const bg = s.signal === 'BUY'
                     ? `rgba(52,199,89,${0.2 + score * 0.8})`
                     : s.signal === 'SELL'
                     ? `rgba(255,59,48,${0.2 + score * 0.8})`
                     : 'rgba(72,72,74,0.3)';
                   return (
-                    <div key={i} title={`${s.date} | ${s.signal} | Score: ${parseFloat(s.composite_score ?? 0).toFixed(2)}`}
+                    <div key={i} title={`${s.date} | ${s.signal} | Score: ${Number(s.composite_score ?? 0).toFixed(2)}`}
                       style={{ width: 14, height: 14, borderRadius: 2, background: bg, cursor: 'help' }} />
                   );
                 })}
@@ -99,7 +118,7 @@ export default function SignalsPage() {
               </tr>
             </thead>
             <tbody>
-              {filteredTrades.slice(0, 20).map((t: any, i: number) => (
+              {filteredTrades.slice(0, 20).map((t, i: number) => (
                 <tr key={i} style={{
                   borderBottom: '1px solid var(--border)',
                   borderLeft: `2px solid ${t.action === 'BUY' ? 'var(--gain)' : t.action === 'SELL' ? 'var(--loss)' : 'transparent'}`,
@@ -107,13 +126,13 @@ export default function SignalsPage() {
                   <td className="px-4 py-2.5 number" style={{ color: 'var(--text-secondary)' }}>{t.date}</td>
                   <td className="px-4 py-2.5 number text-white">{t.ticker}</td>
                   <td className="px-4 py-2.5"><SignalBadge signal={t.action} /></td>
-                  <td className="px-4 py-2.5 number">{parseFloat(t.shares ?? 0).toFixed(0)}</td>
-                  <td className="px-4 py-2.5 number">${parseFloat(t.price ?? 0).toFixed(2)}</td>
+                  <td className="px-4 py-2.5 number">{Number(t.shares ?? 0).toFixed(0)}</td>
+                  <td className="px-4 py-2.5 number">${Number(t.price ?? 0).toFixed(2)}</td>
                   <td className="px-4 py-2.5 number" style={{ color: 'var(--loss)' }}>
-                    ${parseFloat(t.costs?.commission ?? 0).toFixed(2)}
+                    ${Number(t.costs?.commission ?? 0).toFixed(2)}
                   </td>
                   <td className="px-4 py-2.5 number" style={{ color: 'var(--warn)' }}>
-                    ${parseFloat(t.costs?.slippage ?? 0).toFixed(2)}
+                    ${Number(t.costs?.slippage ?? 0).toFixed(2)}
                   </td>
                 </tr>
               ))}

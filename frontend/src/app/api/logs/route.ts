@@ -14,7 +14,7 @@ export async function GET() {
     }
     const fileContents = fs.readFileSync(filePath, 'utf8');
     return NextResponse.json(JSON.parse(fileContents));
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to read logs' }, { status: 500 });
   }
 }
