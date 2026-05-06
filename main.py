@@ -40,6 +40,7 @@ def _build_target_weights(
     min_cash_pct: float,
     strategic_weights: Dict[str, float] | None = None,
     defensive_weights: Dict[str, float] | None = None,
+    core_assets: set[str] | None = None,
     defensive_mode: bool = False,
     defensive_risky_budget: float = 0.25,
 ) -> Dict[str, float]:
@@ -52,12 +53,17 @@ def _build_target_weights(
 
     base_map = strategic_weights or {'Equity': 0.55, 'Bond': 0.30, 'Gold': 0.10, 'Oil': 0.05}
     defensive_map = defensive_weights or {'Equity': 0.20, 'Bond': 0.70, 'Gold': 0.10, 'Oil': 0.00}
+    core_assets = core_assets or {'Equity', 'Bond'}
     raw_scores: Dict[str, float] = {}
 
     for asset, signal in signals.items():
         base = defensive_map.get(asset, 0.0) if defensive_mode else base_map.get(asset, 0.0)
         if base <= 0:
             raw_scores[asset] = 0.0
+            continue
+
+        if asset in core_assets and not defensive_mode:
+            raw_scores[asset] = base
             continue
 
         if signal <= sell_threshold:
@@ -150,6 +156,7 @@ def run_simulation() -> None:
     use_drift_rebalance = config['trading'].get('use_drift_rebalance', False)
     strategic_weights = config['portfolio'].get('strategic_weights', {'Equity': 0.55, 'Bond': 0.30, 'Gold': 0.10, 'Oil': 0.05})
     defensive_weights = config['portfolio'].get('defensive_weights', {'Equity': 0.20, 'Bond': 0.70, 'Gold': 0.10, 'Oil': 0.00})
+    core_assets = set(config['portfolio'].get('core_assets', ['Equity', 'Bond']))
 
     signal_history = []
     assets = ['Equity', 'Oil', 'Gold', 'Bond']
@@ -230,6 +237,7 @@ def run_simulation() -> None:
                 min_cash_pct=min_cash_pct,
                 strategic_weights=strategic_weights,
                 defensive_weights=defensive_weights,
+                core_assets=core_assets,
                 defensive_mode=in_defensive_mode,
                 defensive_risky_budget=defensive_risky_budget,
             )

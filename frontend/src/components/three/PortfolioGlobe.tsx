@@ -74,7 +74,9 @@ export default function PortfolioGlobe({ assets = MOCK_ASSETS }: { assets?: Asse
       globe.rotation.y += (e.clientX - prevX) * 0.005;
       globe.rotation.x += (e.clientY - prevY) * 0.005;
       nodeMeshes.forEach(n => {
-        n.parent === null && scene.remove(n);
+        if (n.parent === null) {
+          scene.remove(n);
+        }
       });
       prevX = e.clientX; prevY = e.clientY;
     };
