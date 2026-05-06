@@ -9,26 +9,43 @@ import { formatPercent, formatCurrency } from '@/lib/formatters';
 const PortfolioGlobe = dynamic(() => import('@/components/three/PortfolioGlobe'), { ssr: false });
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
-const COLORS = ['#00D4AA', '#8A8A8E'];
+const COLORS = ['#00D4AA', '#FF9F0A', '#32D74B', '#FF375F', '#8A8A8E'];
 
 export default function PortfolioPage() {
   const { data: portfolio } = useSWR('/api/portfolio', fetcher);
   const { data: metrics } = useSWR('/api/metrics', fetcher);
+  const { data: signals } = useSWR('/api/signals', fetcher);
 
   const latest = Array.isArray(portfolio) ? portfolio.at(-1) : null;
   const totalValue = parseFloat(latest?.Total_Value ?? '1000000');
   const cash = parseFloat(latest?.Cash ?? '50000');
-  const equityValue = totalValue - cash;
 
-  const donutData = [
-    { name: 'Equity', value: equityValue },
-    { name: 'Cash', value: cash },
-  ];
+  const donutData: any[] = [];
+  const assets: any[] = [];
 
-  const assets = [
-    { ticker: 'Equity', weight: equityValue / totalValue, pnl: metrics?.['Total Return'] ?? 0 },
-    { ticker: 'Cash', weight: cash / totalValue, pnl: 0 },
-  ];
+  const getLatestSignal = (ticker: string) => {
+    if (!Array.isArray(signals)) return 'HOLD';
+    const sig = [...signals].reverse().find(s => s.ticker === ticker);
+    return sig?.signal || 'HOLD';
+  };
+
+  if (latest) {
+    ['Equity', 'Oil', 'Gold', 'Bond'].forEach(asset => {
+      const shares = parseFloat(latest[`${asset}_Shares`]) || 0;
+      const price = parseFloat(latest[`${asset}_Price`]) || 0;
+      const val = shares * price;
+      if (val > 10) {
+        donutData.push({ name: asset, value: val });
+        assets.push({ ticker: asset, weight: val / totalValue, pnl: metrics?.['Total Return'] ?? 0, signal: getLatestSignal(asset) });
+      }
+    });
+  }
+
+  // Always add Cash
+  if (cash > 10) {
+    donutData.push({ name: 'Cash', value: cash });
+    assets.push({ ticker: 'Cash', weight: cash / totalValue, pnl: 0, signal: 'N/A' });
+  }
 
   return (
     <motion.div
@@ -88,8 +105,11 @@ export default function PortfolioPage() {
                     </td>
                     <td className="px-4 py-3">
                       <span className="px-2 py-0.5 rounded text-[10px] font-medium"
-                        style={{ background: 'var(--accent-dim)', color: 'var(--accent)' }}>
-                        HOLD
+                        style={{ 
+                          background: a.signal === 'BUY' ? 'rgba(52,199,89,0.12)' : a.signal === 'SELL' ? 'rgba(255,59,48,0.12)' : 'var(--accent-dim)',
+                          color: a.signal === 'BUY' ? 'var(--gain)' : a.signal === 'SELL' ? 'var(--loss)' : 'var(--accent)'
+                        }}>
+                        {a.signal}
                       </span>
                     </td>
                   </tr>

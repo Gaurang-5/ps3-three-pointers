@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Issues](https://img.shields.io/badge/Issues-20%2F20%20Resolved-brightgreen)
 
-**Code2Create Challenge — Round 3 | Team: ps3-three-pointers**
+**Code2Create Challenge — Round 3 | Team: Three Pointers**
 
 *A production-grade, modular, risk-aware semi-automated trading simulation system with a premium Next.js dashboard.*
 

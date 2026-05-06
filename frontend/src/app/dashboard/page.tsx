@@ -149,8 +149,13 @@ export default function DashboardPage() {
               <Wallet size={16} style={{ color: 'var(--accent)' }} />
             </div>
             <div>
-              <div className="label">Positions</div>
-              <div className="number text-white text-xl">1</div>
+              <div className="label">Active Positions</div>
+              <div className="number text-white text-xl">
+                {(() => {
+                  const last = portfolio?.at(-1) || {};
+                  return Object.keys(last).filter(k => k.endsWith('_Shares') && parseFloat(last[k]) > 0).length || 0;
+                })()}
+              </div>
             </div>
           </GlassCard>
 
@@ -159,8 +164,8 @@ export default function DashboardPage() {
               <Activity size={16} style={{ color: 'var(--gain)' }} />
             </div>
             <div>
-              <div className="label">Trades Today</div>
-              <div className="number text-white text-xl">8</div>
+              <div className="label">Total Signals Logged</div>
+              <div className="number text-white text-xl">10000+</div>
             </div>
           </GlassCard>
 
@@ -169,8 +174,19 @@ export default function DashboardPage() {
               <TrendingUp size={16} style={{ color: 'var(--gain)' }} />
             </div>
             <div>
-              <div className="label">Best Performer</div>
-              <div className="number text-[var(--gain)] text-lg">Equity</div>
+              <div className="label">Top Alloc</div>
+              <div className="number text-[var(--gain)] text-lg">
+                {(() => {
+                  const last = portfolio?.at(-1) || {};
+                  let top = 'Cash';
+                  let maxVal = parseFloat(last.Cash) || 0;
+                  ['Equity', 'Oil', 'Gold', 'Bond'].forEach(asset => {
+                    const val = (parseFloat(last[`${asset}_Shares`]) || 0) * (parseFloat(last[`${asset}_Price`]) || 0);
+                    if (val > maxVal) { maxVal = val; top = asset; }
+                  });
+                  return top;
+                })()}
+              </div>
             </div>
           </GlassCard>
 
@@ -179,10 +195,10 @@ export default function DashboardPage() {
               <AlertTriangle size={16} style={{ color: 'var(--warn)' }} />
             </div>
             <div>
-              <div className="label">Risk Status</div>
+              <div className="label">Risk Breaches</div>
               <div className="text-[var(--warn)] text-sm font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--warn)' }} />
-                NORMAL
+                {varValue > 0.03 || totalReturn < -0.20 ? 'CIRCUIT BREAKER' : '0'}
               </div>
             </div>
           </GlassCard>
