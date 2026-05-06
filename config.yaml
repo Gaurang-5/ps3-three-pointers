@@ -1,0 +1,35 @@
+paths:
+  equity_data: "data/raw/equity_dataset.csv"
+  macro_data: "data/raw/macro_dataset.csv"
+  multi_asset: "data/raw/multi_asset_dataset.csv"
+  oil_data: "data/raw/oil_dataset.csv"
+
+portfolio:
+  initial_capital: 1000000.0
+  max_position_pct: 0.20        # Max 20% per asset
+  risk_tolerance_var: 0.03      # Max daily VaR: 3% of portfolio
+  max_drawdown_limit: 0.20      # Emergency rebalance at 20% drawdown
+  min_cash_pct: 0.05            # Always keep 5% in cash
+
+trading:
+  commission_rate: 0.001        # 0.1%
+  base_slippage: 0.0005         # 0.05%
+  rebalance_frequency: 21       # Monthly in days
+  drift_threshold: 0.15         # Rebalance if drift > 15%
+
+signals:
+  buy_threshold: 0.30
+  sell_threshold: -0.30
+  rsi_oversold: 35
+  rsi_overbought: 65
+
+risk:
+  var_confidence: 0.95
+  var_lookback_days: 252
+  volatility_window: 21
+  momentum_short_window: 10
+  momentum_long_window: 30
+
+metrics:
+  risk_free_rate: 0.05
+  benchmark_ticker: "Equity"

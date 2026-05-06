@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme (default) */
+  --bg-primary:    #000000;
+  --bg-secondary:  #0A0A0A;
+  --bg-tertiary:   #111111;
+  --bg-glass:      rgba(255,255,255,0.04);
+  --border:        rgba(255,255,255,0.08);
+  --border-bright: rgba(255,255,255,0.15);
+
+  /* Text */
+  --text-primary:   #FFFFFF;
+  --text-secondary: #8A8A8E;
+  --text-tertiary:  #48484A;
+
+  /* Accent */
+  --accent:        #00D4AA;
+  --accent-dim:    rgba(0, 212, 170, 0.15);
+
+  /* Semantic */
+  --gain:  #34C759;
+  --loss:  #FF3B30;
+  --warn:  #FF9F0A;
+
+  /* 3D atmosphere */
+  --glow-teal:  rgba(0, 212, 170, 0.3);
+  --glow-blue:  rgba(10, 132, 255, 0.2);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typography Rules */
+.number, .price, .metric { font-family: 'JetBrains Mono', monospace; }
+h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
+h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; }
+.label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+
+/* Glass Card */
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.glass-card:hover {
+  border-color: var(--border-bright);
+}
+.glass-card.glow-teal {
+  box-shadow: 0 0 40px rgba(0, 212, 170, 0.08);
+}
+.glass-card.glow-red {
+  box-shadow: 0 0 40px rgba(255, 59, 48, 0.1);
+}

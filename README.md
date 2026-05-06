@@ -1,17 +1,19 @@
 # Hedge Fund Risk Modeling & Semi-Automated Trading System
 
-## Team Information
-- **Team Name**: [Team Name]
-- **Year**: [Year]
-- **All-Female Team**: [Yes/No]
+## Overview
+This repository contains a production-grade, risk-aware, semi-automated trading system. It is designed to ingest multi-asset market data, generate robust trading signals based on technical and macroeconomic features, and simulate realistic portfolio execution considering transaction costs, slippage, and strict capital constraints.
 
-## Architecture Overview
+## System Features
+1. **Data Pipeline**: Robust parsing, missing data imputation, and outlier capping.
+2. **Feature Engineering**: Calculates rolling volatility, RSI, SMA cross-overs, and a composite Macro Alignment Score.
+3. **Risk Management**: Implements Historical VaR, Volatility-Targeted Position Sizing, and Drawdown-based Stop-Losses.
+4. **Execution Simulator**: Tracks cash, simulates market friction, and gracefully handles capital shortfalls.
+5. **Audit Logging**: Every trade decision is logged to `audit_log.json` for stakeholder transparency.
 
-#### Describe your approach here. Keep it short and clear.
+## Setup & Execution
+1. Install requirements: `pip install pandas numpy pyyaml`
+2. Run the simulation: `python main.py`
+3. View the generated `audit_log.json` and `performance_report.json`.
 
-    - How does your system ingest and preprocess the varying data sources (market, macro, sentiment)?
-    - What risk modeling techniques were selected, and how are they integrated into the trading decision pipeline?
-    - How does your semi-automated strategy generate signals while respecting portfolio constraints and handling realistic conditions like slippage?
-    - How is the dashboard designed to provide explainable insights and key metrics (Sharpe, drawdown) to stakeholders?
-
-**Note:** Please do not change the format or spelling of anything in this README. The fields are extracted using a script, so any changes to the structure or formatting may break the extraction process.
+## Performance Output
+Outputs metrics including Sharpe Ratio, Sortino Ratio, Maximum Drawdown, Alpha, and Beta.

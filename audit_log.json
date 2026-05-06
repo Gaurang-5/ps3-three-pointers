@@ -1,0 +1,4772 @@
+[
+    {
+        "date": "2020-01-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-0.50)",
+        "VaR": -0.0105908342034186,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1149775.075,
+        "timestamp": "2026-05-06T11:18:17.478526"
+    },
+    {
+        "date": "2020-01-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (1.30)",
+        "VaR": -0.0105908342034186,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 849525.1135275621,
+        "timestamp": "2026-05-06T11:18:17.482411"
+    },
+    {
+        "date": "2020-02-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Unfavorable Macro (-1.13)",
+        "VaR": -0.015331600050553364,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 996934.1066865153,
+        "timestamp": "2026-05-06T11:18:17.485548"
+    },
+    {
+        "date": "2020-03-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.015197509061261997,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 996934.1066865153,
+        "timestamp": "2026-05-06T11:18:17.489144"
+    },
+    {
+        "date": "2020-03-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Favorable Macro (1.67)",
+        "VaR": -0.01506341807197063,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 996934.1066865153,
+        "timestamp": "2026-05-06T11:18:17.492215"
+    },
+    {
+        "date": "2020-04-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.015796230700834597,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 996934.1066865153,
+        "timestamp": "2026-05-06T11:18:17.495578"
+    },
+    {
+        "date": "2020-05-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (0.72)",
+        "VaR": -0.01643024655875119,
+        "position_size_allocated": 0.13423418507514553,
+        "remaining_capital": 862910.668434437,
+        "timestamp": "2026-05-06T11:18:17.499003"
+    },
+    {
+        "date": "2020-05-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-0.57)",
+        "VaR": -0.016031188464949372,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 999643.1403511312,
+        "timestamp": "2026-05-06T11:18:17.501911"
+    },
+    {
+        "date": "2020-06-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.01636993193589556,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1149364.7666704576,
+        "timestamp": "2026-05-06T11:18:17.505400"
+    },
+    {
+        "date": "2020-07-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend",
+        "VaR": -0.01635187867311818,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1009691.2195822217,
+        "timestamp": "2026-05-06T11:18:17.508361"
+    },
+    {
+        "date": "2020-07-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.0163338254103408,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1160917.7977219904,
+        "timestamp": "2026-05-06T11:18:17.512012"
+    },
+    {
+        "date": "2020-08-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (0.89)",
+        "VaR": -0.016730970930995258,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1012989.1056780623,
+        "timestamp": "2026-05-06T11:18:17.515244"
+    },
+    {
+        "date": "2020-09-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.016978158875635734,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1164709.624955177,
+        "timestamp": "2026-05-06T11:18:17.518375"
+    },
+    {
+        "date": "2020-09-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Unfavorable Macro (-0.79)",
+        "VaR": -0.017027679360174006,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1022977.6028262542,
+        "timestamp": "2026-05-06T11:18:17.521913"
+    },
+    {
+        "date": "2020-10-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-1.08)",
+        "VaR": -0.017299949650079176,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1176194.1500128766,
+        "timestamp": "2026-05-06T11:18:17.525328"
+    },
+    {
+        "date": "2020-11-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.017547941820205647,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1016197.412314832,
+        "timestamp": "2026-05-06T11:18:17.529141"
+    },
+    {
+        "date": "2020-12-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-1.52)",
+        "VaR": -0.017646949220631803,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1168398.455959092,
+        "timestamp": "2026-05-06T11:18:17.532462"
+    },
+    {
+        "date": "2020-12-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70)",
+        "VaR": -0.017646949220631803,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1160771.7694252997,
+        "timestamp": "2026-05-06T11:18:17.535805"
+    },
+    {
+        "date": "2021-01-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Favorable Macro (0.90)",
+        "VaR": -0.017646949220631803,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 868117.4215529694,
+        "timestamp": "2026-05-06T11:18:17.539251"
+    },
+    {
+        "date": "2021-02-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend",
+        "VaR": -0.017709820552647713,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1014030.0598893161,
+        "timestamp": "2026-05-06T11:18:17.542518"
+    },
+    {
+        "date": "2021-02-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (2.96)",
+        "VaR": -0.01781381034982915,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1014030.0598893161,
+        "timestamp": "2026-05-06T11:18:17.546039"
+    },
+    {
+        "date": "2021-03-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Favorable Macro (0.71)",
+        "VaR": -0.017709820552647713,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 861697.318090189,
+        "timestamp": "2026-05-06T11:18:17.549233"
+    },
+    {
+        "date": "2021-04-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (2.16)",
+        "VaR": -0.017709820552647713,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 865879.0256133948,
+        "timestamp": "2026-05-06T11:18:17.552491"
+    },
+    {
+        "date": "2021-04-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-0.52)",
+        "VaR": -0.01762602664811563,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1164929.5074961546,
+        "timestamp": "2026-05-06T11:18:17.556114"
+    },
+    {
+        "date": "2021-05-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-1.19)",
+        "VaR": -0.01701775107566345,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1167272.8390763276,
+        "timestamp": "2026-05-06T11:18:17.559566"
+    },
+    {
+        "date": "2021-06-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (1.66)",
+        "VaR": -0.016234393008132283,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1017647.3673302641,
+        "timestamp": "2026-05-06T11:18:17.562848"
+    },
+    {
+        "date": "2021-06-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-0.66)",
+        "VaR": -0.015551811520467595,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1170065.5780957069,
+        "timestamp": "2026-05-06T11:18:17.565872"
+    },
+    {
+        "date": "2021-07-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-1.08)",
+        "VaR": -0.015779353369585646,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1165482.6670286946,
+        "timestamp": "2026-05-06T11:18:17.569015"
+    },
+    {
+        "date": "2021-08-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (2.75)",
+        "VaR": -0.016234393008132283,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 861169.1371583121,
+        "timestamp": "2026-05-06T11:18:17.572479"
+    },
+    {
+        "date": "2021-09-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend",
+        "VaR": -0.016690258584120852,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1006398.260164116,
+        "timestamp": "2026-05-06T11:18:17.575728"
+    },
+    {
+        "date": "2021-09-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-0.63)",
+        "VaR": -0.016690258584120852,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1157131.6350600661,
+        "timestamp": "2026-05-06T11:18:17.579398"
+    },
+    {
+        "date": "2021-10-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (1.72)",
+        "VaR": -0.015936957196137323,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1009544.9152909473,
+        "timestamp": "2026-05-06T11:18:17.582727"
+    },
+    {
+        "date": "2021-11-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.016427019907251008,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1009544.9152909473,
+        "timestamp": "2026-05-06T11:18:17.586293"
+    },
+    {
+        "date": "2021-11-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70)",
+        "VaR": -0.016427019907251008,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1160749.5806945176,
+        "timestamp": "2026-05-06T11:18:17.589415"
+    },
+    {
+        "date": "2021-12-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (0.92)",
+        "VaR": -0.015936957196137323,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 853986.9733267949,
+        "timestamp": "2026-05-06T11:18:17.592807"
+    },
+    {
+        "date": "2022-01-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Favorable Macro (0.94)",
+        "VaR": -0.01530854930296962,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1017971.0968413705,
+        "timestamp": "2026-05-06T11:18:17.596116"
+    },
+    {
+        "date": "2022-01-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.01658317288077986,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 865046.3124705433,
+        "timestamp": "2026-05-06T11:18:17.599371"
+    },
+    {
+        "date": "2022-02-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-0.65)",
+        "VaR": -0.016965017404425846,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1026568.8519712056,
+        "timestamp": "2026-05-06T11:18:17.602777"
+    },
+    {
+        "date": "2022-03-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30)",
+        "VaR": -0.016965017404425846,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 872352.4691911673,
+        "timestamp": "2026-05-06T11:18:17.606100"
+    },
+    {
+        "date": "2022-03-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (1.17)",
+        "VaR": -0.015594856666813135,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 868823.7127624308,
+        "timestamp": "2026-05-06T11:18:17.609396"
+    },
+    {
+        "date": "2022-04-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Unfavorable Macro (-0.70)",
+        "VaR": -0.014971365436089824,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1011996.9720878307,
+        "timestamp": "2026-05-06T11:18:17.613187"
+    },
+    {
+        "date": "2022-05-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (1.45)",
+        "VaR": -0.014366206840823884,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1011996.9720878307,
+        "timestamp": "2026-05-06T11:18:17.616376"
+    },
+    {
+        "date": "2022-06-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.014460245836203704,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1163568.8944820585,
+        "timestamp": "2026-05-06T11:18:17.619908"
+    },
+    {
+        "date": "2022-06-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.014747365333442015,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1173011.703803105,
+        "timestamp": "2026-05-06T11:18:17.623217"
+    },
+    {
+        "date": "2022-07-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.014335635497599999,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1175685.3834561284,
+        "timestamp": "2026-05-06T11:18:17.626449"
+    },
+    {
+        "date": "2022-08-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.014905150381685956,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1183147.1675053914,
+        "timestamp": "2026-05-06T11:18:17.629807"
+    },
+    {
+        "date": "2022-08-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (0.76)",
+        "VaR": -0.014996654027651504,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1029827.4227587105,
+        "timestamp": "2026-05-06T11:18:17.633086"
+    },
+    {
+        "date": "2022-09-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.014996654027651504,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1029827.4227587105,
+        "timestamp": "2026-05-06T11:18:17.636543"
+    },
+    {
+        "date": "2022-10-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-2.14)",
+        "VaR": -0.014627246158317954,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1184069.902239453,
+        "timestamp": "2026-05-06T11:18:17.639765"
+    },
+    {
+        "date": "2022-10-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.01536143621152826,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1184403.6520882344,
+        "timestamp": "2026-05-06T11:18:17.643096"
+    },
+    {
+        "date": "2022-11-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Favorable Macro (2.65)",
+        "VaR": -0.015511623449872862,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 878239.5204139941,
+        "timestamp": "2026-05-06T11:18:17.646549"
+    },
+    {
+        "date": "2022-12-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.015673387073637128,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1184702.2556092287,
+        "timestamp": "2026-05-06T11:18:17.649784"
+    },
+    {
+        "date": "2022-12-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Unfavorable Macro (-1.16)",
+        "VaR": -0.01595907096608986,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1044420.9989336599,
+        "timestamp": "2026-05-06T11:18:17.653472"
+    },
+    {
+        "date": "2023-01-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-1.43)",
+        "VaR": -0.01679583381508733,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1200849.2323805236,
+        "timestamp": "2026-05-06T11:18:17.656820"
+    },
+    {
+        "date": "2023-02-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.01595907096608986,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1207415.3180180297,
+        "timestamp": "2026-05-06T11:18:17.660078"
+    },
+    {
+        "date": "2023-03-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (0.93)",
+        "VaR": -0.016125110664759214,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 880819.8233341504,
+        "timestamp": "2026-05-06T11:18:17.663340"
+    },
+    {
+        "date": "2023-03-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (0.71)",
+        "VaR": -0.017573010648097836,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 883977.3585843998,
+        "timestamp": "2026-05-06T11:18:17.666604"
+    },
+    {
+        "date": "2023-04-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Bearish Trend",
+        "VaR": -0.017640604165677993,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1189903.46956624,
+        "timestamp": "2026-05-06T11:18:17.669950"
+    },
+    {
+        "date": "2023-05-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30) | Bearish Trend | Favorable Macro (0.91)",
+        "VaR": -0.018699788871585552,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 889205.3238081355,
+        "timestamp": "2026-05-06T11:18:17.673276"
+    },
+    {
+        "date": "2023-05-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bearish Trend | Favorable Macro (2.18)",
+        "VaR": -0.019153069292541753,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1048588.441120494,
+        "timestamp": "2026-05-06T11:18:17.676502"
+    },
+    {
+        "date": "2023-06-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (1.08)",
+        "VaR": -0.018699788871585552,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 891064.1639090347,
+        "timestamp": "2026-05-06T11:18:17.679805"
+    },
+    {
+        "date": "2023-07-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-0.51)",
+        "VaR": -0.018029418954630373,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1201739.3297150505,
+        "timestamp": "2026-05-06T11:18:17.683061"
+    },
+    {
+        "date": "2023-07-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70)",
+        "VaR": -0.018029418954630373,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1188725.2197916652,
+        "timestamp": "2026-05-06T11:18:17.686460"
+    },
+    {
+        "date": "2023-08-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend",
+        "VaR": -0.01768404058165166,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1020525.6327648249,
+        "timestamp": "2026-05-06T11:18:17.689730"
+    },
+    {
+        "date": "2023-09-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Unfavorable Macro (-1.27)",
+        "VaR": -0.016767851555726375,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1173374.935951599,
+        "timestamp": "2026-05-06T11:18:17.693082"
+    },
+    {
+        "date": "2023-09-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.55)",
+        "VaR": -0.016767851555726375,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 872064.4088809108,
+        "timestamp": "2026-05-06T11:18:17.696497"
+    },
+    {
+        "date": "2023-10-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.016935957238801175,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1020678.9501161943,
+        "timestamp": "2026-05-06T11:18:17.699629"
+    },
+    {
+        "date": "2023-11-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-0.78)",
+        "VaR": -0.0172947689630136,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1173551.2164207685,
+        "timestamp": "2026-05-06T11:18:17.702756"
+    },
+    {
+        "date": "2023-11-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Unfavorable Macro (-0.66)",
+        "VaR": -0.016767851555726375,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1164166.1792281002,
+        "timestamp": "2026-05-06T11:18:17.705891"
+    },
+    {
+        "date": "2023-12-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend",
+        "VaR": -0.016503665352460138,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1002944.8357215335,
+        "timestamp": "2026-05-06T11:18:17.709105"
+    },
+    {
+        "date": "2024-01-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (2.02)",
+        "VaR": -0.015714469821282308,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 852277.3725544035,
+        "timestamp": "2026-05-06T11:18:17.712320"
+    },
+    {
+        "date": "2024-01-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.39999999999999997,
+        "reason": "RSI Oversold (<30) | Bullish Trend | Unfavorable Macro (-1.74)",
+        "VaR": -0.015321250700149865,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 851186.0559799353,
+        "timestamp": "2026-05-06T11:18:17.715601"
+    },
+    {
+        "date": "2024-02-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend",
+        "VaR": -0.015321250700149865,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1005779.7668936553,
+        "timestamp": "2026-05-06T11:18:17.718812"
+    },
+    {
+        "date": "2024-03-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.015321250700149865,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 854686.4259785734,
+        "timestamp": "2026-05-06T11:18:17.722096"
+    },
+    {
+        "date": "2024-04-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (0.91)",
+        "VaR": -0.015714469821282308,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 855474.5699762896,
+        "timestamp": "2026-05-06T11:18:17.725301"
+    },
+    {
+        "date": "2024-04-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend",
+        "VaR": -0.015714469821282308,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1014651.3963535037,
+        "timestamp": "2026-05-06T11:18:17.728647"
+    },
+    {
+        "date": "2024-05-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.36)",
+        "VaR": -0.015582528859764964,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 862225.314237444,
+        "timestamp": "2026-05-06T11:18:17.731906"
+    },
+    {
+        "date": "2024-06-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.015174928004339845,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 863769.0716689732,
+        "timestamp": "2026-05-06T11:18:17.735190"
+    },
+    {
+        "date": "2024-06-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-1.14)",
+        "VaR": -0.014092204837880555,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1012699.7980660798,
+        "timestamp": "2026-05-06T11:18:17.738498"
+    },
+    {
+        "date": "2024-07-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.4,
+        "reason": "RSI Oversold (<30)",
+        "VaR": -0.0135774005960534,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 860566.8949491181,
+        "timestamp": "2026-05-06T11:18:17.741764"
+    },
+    {
+        "date": "2024-08-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.0135774005960534,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 868004.9142503936,
+        "timestamp": "2026-05-06T11:18:17.745156"
+    },
+    {
+        "date": "2024-08-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.44)",
+        "VaR": -0.015282012374957044,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 867387.1088188749,
+        "timestamp": "2026-05-06T11:18:17.748421"
+    },
+    {
+        "date": "2024-09-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Favorable Macro (1.00)",
+        "VaR": -0.014189540083760957,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1020489.784651267,
+        "timestamp": "2026-05-06T11:18:17.751626"
+    },
+    {
+        "date": "2024-10-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-2.19)",
+        "VaR": -0.014383302498582155,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1173333.7186841443,
+        "timestamp": "2026-05-06T11:18:17.754999"
+    },
+    {
+        "date": "2024-10-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-1.15)",
+        "VaR": -0.014354205978955672,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1016312.813810423,
+        "timestamp": "2026-05-06T11:18:17.758268"
+    },
+    {
+        "date": "2024-11-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.013833268726787501,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 863637.1451322912,
+        "timestamp": "2026-05-06T11:18:17.761613"
+    },
+    {
+        "date": "2024-12-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-0.92)",
+        "VaR": -0.014318486570746431,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1164392.1282291554,
+        "timestamp": "2026-05-06T11:18:17.764763"
+    },
+    {
+        "date": "2025-01-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.014783182855339584,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1018127.9109549021,
+        "timestamp": "2026-05-06T11:18:17.768094"
+    },
+    {
+        "date": "2025-01-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.44)",
+        "VaR": -0.01495463302837196,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 865179.5691721085,
+        "timestamp": "2026-05-06T11:18:17.771359"
+    },
+    {
+        "date": "2025-02-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.015036899750596203,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 865633.2518898245,
+        "timestamp": "2026-05-06T11:18:17.774717"
+    },
+    {
+        "date": "2025-03-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 1.0,
+        "reason": "RSI Oversold (<30) | Bullish Trend | Favorable Macro (1.18)",
+        "VaR": -0.015490482059938802,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 866710.0097883916,
+        "timestamp": "2026-05-06T11:18:17.778191"
+    },
+    {
+        "date": "2025-03-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (1.36)",
+        "VaR": -0.015036899750596203,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 865126.0773854201,
+        "timestamp": "2026-05-06T11:18:17.781351"
+    },
+    {
+        "date": "2025-04-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-1.61)",
+        "VaR": -0.015490482059938802,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1024982.0815702096,
+        "timestamp": "2026-05-06T11:18:17.784545"
+    },
+    {
+        "date": "2025-05-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-1.69)",
+        "VaR": -0.015144821219526105,
+        "position_size_allocated": -0.14210456113045777,
+        "remaining_capital": 1170418.3013223396,
+        "timestamp": "2026-05-06T11:18:17.787989"
+    },
+    {
+        "date": "2025-05-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Unfavorable Macro (-1.14)",
+        "VaR": -0.015958922377970797,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1169671.5724361485,
+        "timestamp": "2026-05-06T11:18:17.791283"
+    },
+    {
+        "date": "2025-06-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-0.72)",
+        "VaR": -0.01680747968129695,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1174650.9811587778,
+        "timestamp": "2026-05-06T11:18:17.794713"
+    },
+    {
+        "date": "2025-07-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.26)",
+        "VaR": -0.01680747968129695,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 862888.6736062794,
+        "timestamp": "2026-05-06T11:18:17.797998"
+    },
+    {
+        "date": "2025-07-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Unfavorable Macro (-1.37)",
+        "VaR": -0.01680747968129695,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1010744.7195368055,
+        "timestamp": "2026-05-06T11:18:17.801441"
+    },
+    {
+        "date": "2025-08-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Favorable Macro (2.19)",
+        "VaR": -0.01648352404970733,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1010744.7195368055,
+        "timestamp": "2026-05-06T11:18:17.804736"
+    },
+    {
+        "date": "2025-09-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend",
+        "VaR": -0.016420990105236184,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1010744.7195368055,
+        "timestamp": "2026-05-06T11:18:17.807923"
+    },
+    {
+        "date": "2025-10-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-0.63)",
+        "VaR": -0.016420990105236184,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1010744.7195368055,
+        "timestamp": "2026-05-06T11:18:17.811200"
+    },
+    {
+        "date": "2025-10-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.015450374648548829,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 858905.5182385349,
+        "timestamp": "2026-05-06T11:18:17.814552"
+    },
+    {
+        "date": "2025-11-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (1.06)",
+        "VaR": -0.014495020784263913,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 862562.6487473729,
+        "timestamp": "2026-05-06T11:18:17.817886"
+    },
+    {
+        "date": "2025-12-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-1.83)",
+        "VaR": -0.015450374648548829,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1163258.9238007115,
+        "timestamp": "2026-05-06T11:18:17.821269"
+    },
+    {
+        "date": "2025-12-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.7,
+        "reason": "RSI Oversold (<30) | Favorable Macro (1.71)",
+        "VaR": -0.016019466131660255,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 866274.6321437875,
+        "timestamp": "2026-05-06T11:18:17.824449"
+    },
+    {
+        "date": "2026-01-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-1.49)",
+        "VaR": -0.01447192039897168,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1180855.5469557568,
+        "timestamp": "2026-05-06T11:18:17.827911"
+    },
+    {
+        "date": "2026-02-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.4,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Unfavorable Macro (-1.23)",
+        "VaR": -0.014183627924808907,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1174558.3505436282,
+        "timestamp": "2026-05-06T11:18:17.831192"
+    },
+    {
+        "date": "2026-02-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.6,
+        "reason": "Bullish Trend | Favorable Macro (0.72)",
+        "VaR": -0.013098745397395186,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 860943.3867094016,
+        "timestamp": "2026-05-06T11:18:17.834608"
+    },
+    {
+        "date": "2026-03-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Favorable Macro (2.03)",
+        "VaR": -0.013098745397395186,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1030348.9777642525,
+        "timestamp": "2026-05-06T11:18:17.837945"
+    },
+    {
+        "date": "2026-04-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Bullish Trend | Unfavorable Macro (-0.85)",
+        "VaR": -0.013983317668534065,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1030348.9777642525,
+        "timestamp": "2026-05-06T11:18:17.841276"
+    },
+    {
+        "date": "2026-04-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Oversold (<30) | Unfavorable Macro (-1.22)",
+        "VaR": -0.014044819676018073,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1030348.9777642525,
+        "timestamp": "2026-05-06T11:18:17.844746"
+    },
+    {
+        "date": "2026-05-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "RSI Overbought (>70) | Bullish Trend | Favorable Macro (0.85)",
+        "VaR": -0.014152078250686899,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1030348.9777642525,
+        "timestamp": "2026-05-06T11:18:17.848167"
+    },
+    {
+        "date": "2026-06-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.3,
+        "reason": "Unfavorable Macro (-2.16)",
+        "VaR": -0.014802265384631209,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1184669.5731850667,
+        "timestamp": "2026-05-06T11:18:17.851601"
+    },
+    {
+        "date": "2026-07-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Bullish Trend",
+        "VaR": -0.014802265384631209,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 868338.0836873502,
+        "timestamp": "2026-05-06T11:18:17.855002"
+    },
+    {
+        "date": "2026-07-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Neutral conditions",
+        "VaR": -0.014958962254009986,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 1016498.2095450581,
+        "timestamp": "2026-05-06T11:18:17.858162"
+    },
+    {
+        "date": "2026-08-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.3,
+        "reason": "Favorable Macro (1.56)",
+        "VaR": -0.014958962254009986,
+        "position_size_allocated": 0.15,
+        "remaining_capital": 863794.689778786,
+        "timestamp": "2026-05-06T11:18:17.861423"
+    },
+    {
+        "date": "2026-09-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.6,
+        "reason": "Bearish Trend | Unfavorable Macro (-1.84)",
+        "VaR": -0.014898250040875253,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1161311.6680124972,
+        "timestamp": "2026-05-06T11:18:17.864734"
+    },
+    {
+        "date": "2026-09-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": -0.7,
+        "reason": "RSI Overbought (>70) | Unfavorable Macro (-1.35)",
+        "VaR": -0.015028966188943832,
+        "position_size_allocated": -0.15,
+        "remaining_capital": 1152027.4793501452,
+        "timestamp": "2026-05-06T11:18:17.868194"
+    },
+    {
+        "date": "2026-10-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.43%)",
+        "VaR": -0.015134979911639639,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.871903"
+    },
+    {
+        "date": "2026-11-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015440058686191154,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.875343"
+    },
+    {
+        "date": "2026-11-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015440058686191154,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.878831"
+    },
+    {
+        "date": "2026-12-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015930581035513685,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.882307"
+    },
+    {
+        "date": "2027-01-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015605225480243439,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.885808"
+    },
+    {
+        "date": "2027-01-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014677743751239144,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.889238"
+    },
+    {
+        "date": "2027-02-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014015231981321112,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.892717"
+    },
+    {
+        "date": "2027-03-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014263622456952537,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.896198"
+    },
+    {
+        "date": "2027-03-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014361689855004234,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.899656"
+    },
+    {
+        "date": "2027-04-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014486064082818996,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.903118"
+    },
+    {
+        "date": "2027-05-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013880494253407696,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.906534"
+    },
+    {
+        "date": "2027-06-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014088533155884105,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.909993"
+    },
+    {
+        "date": "2027-06-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01411723797748313,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.913467"
+    },
+    {
+        "date": "2027-07-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01411723797748313,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.916917"
+    },
+    {
+        "date": "2027-08-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013901851300348773,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.920410"
+    },
+    {
+        "date": "2027-08-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013901851300348773,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.923620"
+    },
+    {
+        "date": "2027-09-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013901851300348773,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.926841"
+    },
+    {
+        "date": "2027-10-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014260628535631387,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.930271"
+    },
+    {
+        "date": "2027-10-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014433290957124024,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.933565"
+    },
+    {
+        "date": "2027-11-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014433290957124024,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.936885"
+    },
+    {
+        "date": "2027-12-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014496128689994904,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.940091"
+    },
+    {
+        "date": "2027-12-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014542341482885156,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.943489"
+    },
+    {
+        "date": "2028-01-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015204449382479371,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.946918"
+    },
+    {
+        "date": "2028-02-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014927208851805264,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.950243"
+    },
+    {
+        "date": "2028-03-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015257510885248234,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.953537"
+    },
+    {
+        "date": "2028-03-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016102556644116327,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.956960"
+    },
+    {
+        "date": "2028-04-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016839027384178102,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.960409"
+    },
+    {
+        "date": "2028-05-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016839027384178102,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.963907"
+    },
+    {
+        "date": "2028-05-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016337315088288333,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.967366"
+    },
+    {
+        "date": "2028-06-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016337315088288333,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.970841"
+    },
+    {
+        "date": "2028-07-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016077426199102844,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.974080"
+    },
+    {
+        "date": "2028-07-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016165517244324384,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.977386"
+    },
+    {
+        "date": "2028-08-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01582210937564839,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.980686"
+    },
+    {
+        "date": "2028-09-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0159646307628599,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.984082"
+    },
+    {
+        "date": "2028-09-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0159646307628599,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.987536"
+    },
+    {
+        "date": "2028-10-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016618573584212367,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.991016"
+    },
+    {
+        "date": "2028-11-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016618573584212367,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.994495"
+    },
+    {
+        "date": "2028-11-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015729822200540533,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:17.997916"
+    },
+    {
+        "date": "2028-12-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014804343763233634,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.001310"
+    },
+    {
+        "date": "2029-01-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01390620708321031,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.004815"
+    },
+    {
+        "date": "2029-01-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01563140891903906,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.008193"
+    },
+    {
+        "date": "2029-02-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015705870148105892,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.011673"
+    },
+    {
+        "date": "2029-03-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01675366361066527,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.015216"
+    },
+    {
+        "date": "2029-04-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016239667958105386,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.019026"
+    },
+    {
+        "date": "2029-04-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01675366361066527,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.022655"
+    },
+    {
+        "date": "2029-05-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01675366361066527,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.026336"
+    },
+    {
+        "date": "2029-06-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015942542381036894,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.029966"
+    },
+    {
+        "date": "2029-06-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015944625425179063,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.033687"
+    },
+    {
+        "date": "2029-07-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01678306450835919,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.037319"
+    },
+    {
+        "date": "2029-08-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01678306450835919,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.040860"
+    },
+    {
+        "date": "2029-08-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016835268851312025,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.044413"
+    },
+    {
+        "date": "2029-09-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016835268851312025,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.047952"
+    },
+    {
+        "date": "2029-10-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01626048348745403,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.051504"
+    },
+    {
+        "date": "2029-10-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01626048348745403,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.055063"
+    },
+    {
+        "date": "2029-11-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01642295024320847,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.058577"
+    },
+    {
+        "date": "2029-12-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01642295024320847,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.062129"
+    },
+    {
+        "date": "2030-01-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01642295024320847,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.065646"
+    },
+    {
+        "date": "2030-01-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01642295024320847,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.069245"
+    },
+    {
+        "date": "2030-02-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015849178593076226,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.072751"
+    },
+    {
+        "date": "2030-03-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015572182310028687,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.076406"
+    },
+    {
+        "date": "2030-03-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015572182310028687,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.080015"
+    },
+    {
+        "date": "2030-04-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01650328732074441,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.083592"
+    },
+    {
+        "date": "2030-05-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016072269693119565,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.087222"
+    },
+    {
+        "date": "2030-05-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016072269693119565,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.090771"
+    },
+    {
+        "date": "2030-06-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016828537506264916,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.094334"
+    },
+    {
+        "date": "2030-07-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016828537506264916,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.097935"
+    },
+    {
+        "date": "2030-07-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01580163863024067,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.101507"
+    },
+    {
+        "date": "2030-08-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016014165294098322,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.105150"
+    },
+    {
+        "date": "2030-09-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016014165294098322,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.108783"
+    },
+    {
+        "date": "2030-10-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016014165294098322,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.112678"
+    },
+    {
+        "date": "2030-10-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016486707205646274,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.116400"
+    },
+    {
+        "date": "2030-11-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016486707205646274,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.120096"
+    },
+    {
+        "date": "2030-12-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017075952562368414,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.123710"
+    },
+    {
+        "date": "2030-12-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014753377941025604,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.127401"
+    },
+    {
+        "date": "2031-01-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01493345506042756,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.131098"
+    },
+    {
+        "date": "2031-02-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01493345506042756,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.134785"
+    },
+    {
+        "date": "2031-02-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014753377941025604,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.138593"
+    },
+    {
+        "date": "2031-03-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01493345506042756,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.142213"
+    },
+    {
+        "date": "2031-04-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015929287665341046,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.146026"
+    },
+    {
+        "date": "2031-04-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016071645472163255,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.149623"
+    },
+    {
+        "date": "2031-05-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015929287665341046,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.153531"
+    },
+    {
+        "date": "2031-06-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015929287665341046,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.157146"
+    },
+    {
+        "date": "2031-07-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015467513996360992,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.161044"
+    },
+    {
+        "date": "2031-07-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01588831769132796,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.164637"
+    },
+    {
+        "date": "2031-08-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01588831769132796,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.168337"
+    },
+    {
+        "date": "2031-09-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01588831769132796,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.171966"
+    },
+    {
+        "date": "2031-09-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016120464762575677,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.175369"
+    },
+    {
+        "date": "2031-10-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01794611029326044,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.179111"
+    },
+    {
+        "date": "2031-11-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019076940082943198,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.182662"
+    },
+    {
+        "date": "2031-11-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01896648020714406,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.186302"
+    },
+    {
+        "date": "2031-12-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016512043989242713,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.189760"
+    },
+    {
+        "date": "2032-01-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015656419315959767,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.193516"
+    },
+    {
+        "date": "2032-01-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015656419315959767,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.197115"
+    },
+    {
+        "date": "2032-02-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015656419315959767,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.200655"
+    },
+    {
+        "date": "2032-03-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017034937822781742,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.204238"
+    },
+    {
+        "date": "2032-03-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017034937822781742,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.207792"
+    },
+    {
+        "date": "2032-04-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017200740029992275,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.211517"
+    },
+    {
+        "date": "2032-05-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016837034592576367,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.215180"
+    },
+    {
+        "date": "2032-06-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01554086139920264,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.218865"
+    },
+    {
+        "date": "2032-06-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01574992672902213,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.222533"
+    },
+    {
+        "date": "2032-07-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01552572634473096,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.226187"
+    },
+    {
+        "date": "2032-08-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016496955257482307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.229872"
+    },
+    {
+        "date": "2032-08-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016496955257482307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.233557"
+    },
+    {
+        "date": "2032-09-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016496955257482307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.237273"
+    },
+    {
+        "date": "2032-10-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01693683476973009,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.240910"
+    },
+    {
+        "date": "2032-10-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01693683476973009,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.244583"
+    },
+    {
+        "date": "2032-11-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016496955257482307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.248262"
+    },
+    {
+        "date": "2032-12-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016496955257482307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.251947"
+    },
+    {
+        "date": "2032-12-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01687393464254316,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.255656"
+    },
+    {
+        "date": "2033-01-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01687393464254316,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.259321"
+    },
+    {
+        "date": "2033-02-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01691129201867244,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.263014"
+    },
+    {
+        "date": "2033-03-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014740089468676243,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.266840"
+    },
+    {
+        "date": "2033-03-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01470844399406094,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.270484"
+    },
+    {
+        "date": "2033-04-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014094202847530827,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.274064"
+    },
+    {
+        "date": "2033-05-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014094202847530827,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.277907"
+    },
+    {
+        "date": "2033-05-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014094202847530827,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.281555"
+    },
+    {
+        "date": "2033-06-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014094202847530827,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.285231"
+    },
+    {
+        "date": "2033-07-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013631761880300726,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.288768"
+    },
+    {
+        "date": "2033-07-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014800073370459105,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.292340"
+    },
+    {
+        "date": "2033-08-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014800073370459105,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.296000"
+    },
+    {
+        "date": "2033-09-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013900534180550948,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.299669"
+    },
+    {
+        "date": "2033-09-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013900534180550948,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.303412"
+    },
+    {
+        "date": "2033-10-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013900534180550948,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.307116"
+    },
+    {
+        "date": "2033-11-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014234788604650014,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.310946"
+    },
+    {
+        "date": "2033-11-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014831145781058593,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.314510"
+    },
+    {
+        "date": "2033-12-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014831145781058593,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.318324"
+    },
+    {
+        "date": "2034-01-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01431165794687975,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.322070"
+    },
+    {
+        "date": "2034-02-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015276086383490397,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.325767"
+    },
+    {
+        "date": "2034-02-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015164668898107645,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.329615"
+    },
+    {
+        "date": "2034-03-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015276086383490397,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.333211"
+    },
+    {
+        "date": "2034-04-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014822083566045748,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.336907"
+    },
+    {
+        "date": "2034-04-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015164668898107645,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.340628"
+    },
+    {
+        "date": "2034-05-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015164668898107645,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.344424"
+    },
+    {
+        "date": "2034-06-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01815600124387418,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.348203"
+    },
+    {
+        "date": "2034-06-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017361285743790013,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.351990"
+    },
+    {
+        "date": "2034-07-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015164668898107645,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.355684"
+    },
+    {
+        "date": "2034-08-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01513253826258087,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.359607"
+    },
+    {
+        "date": "2034-08-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01513253826258087,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.363194"
+    },
+    {
+        "date": "2034-09-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015843301312464912,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.366722"
+    },
+    {
+        "date": "2034-10-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0148185484707252,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.370531"
+    },
+    {
+        "date": "2034-11-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015701869678452496,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.374295"
+    },
+    {
+        "date": "2034-11-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0148185484707252,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.378060"
+    },
+    {
+        "date": "2034-12-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014865704323936921,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.381689"
+    },
+    {
+        "date": "2035-01-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015126252024795105,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.385416"
+    },
+    {
+        "date": "2035-01-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01581844577106314,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.389170"
+    },
+    {
+        "date": "2035-02-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014939145931458741,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.392974"
+    },
+    {
+        "date": "2035-03-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01581844577106314,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.396631"
+    },
+    {
+        "date": "2035-03-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016292998152882408,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.400318"
+    },
+    {
+        "date": "2035-04-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016292998152882408,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.404125"
+    },
+    {
+        "date": "2035-05-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016292998152882408,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.407677"
+    },
+    {
+        "date": "2035-05-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016292998152882408,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.411446"
+    },
+    {
+        "date": "2035-06-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015415949817589003,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.418555"
+    },
+    {
+        "date": "2035-07-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01581844577106314,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.431070"
+    },
+    {
+        "date": "2035-08-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016038654189269298,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.442733"
+    },
+    {
+        "date": "2035-08-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016192225412498255,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.447754"
+    },
+    {
+        "date": "2035-09-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016925583595369956,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.453553"
+    },
+    {
+        "date": "2035-10-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017394001046847435,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.461088"
+    },
+    {
+        "date": "2035-10-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017885705676233533,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.465107"
+    },
+    {
+        "date": "2035-11-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017394001046847435,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.469139"
+    },
+    {
+        "date": "2035-12-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01780121679577706,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.473136"
+    },
+    {
+        "date": "2035-12-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017394001046847435,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.476985"
+    },
+    {
+        "date": "2036-01-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017885705676233533,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.481177"
+    },
+    {
+        "date": "2036-02-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017885705676233533,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.485161"
+    },
+    {
+        "date": "2036-02-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018142325447403795,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.489156"
+    },
+    {
+        "date": "2036-03-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018601094153307053,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.492826"
+    },
+    {
+        "date": "2036-04-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019059836303017788,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.496722"
+    },
+    {
+        "date": "2036-04-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018142325447403795,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.500485"
+    },
+    {
+        "date": "2036-05-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01681143630260838,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.504600"
+    },
+    {
+        "date": "2036-06-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017112903706007834,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.508242"
+    },
+    {
+        "date": "2036-07-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016356866434594886,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.512363"
+    },
+    {
+        "date": "2036-07-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01669482991289693,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.515995"
+    },
+    {
+        "date": "2036-08-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0163092401940898,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.519890"
+    },
+    {
+        "date": "2036-09-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016546194330013583,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.523564"
+    },
+    {
+        "date": "2036-09-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016072304186320083,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.527300"
+    },
+    {
+        "date": "2036-10-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016546194330013583,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.531160"
+    },
+    {
+        "date": "2036-11-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016230835504034518,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.534840"
+    },
+    {
+        "date": "2036-11-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01595377000914078,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.538764"
+    },
+    {
+        "date": "2036-12-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01503178395455386,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.542611"
+    },
+    {
+        "date": "2037-01-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01602088658137456,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.546512"
+    },
+    {
+        "date": "2037-01-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01609738653302548,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.550189"
+    },
+    {
+        "date": "2037-02-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01503178395455386,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.554152"
+    },
+    {
+        "date": "2037-03-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015684395546830467,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.557915"
+    },
+    {
+        "date": "2037-04-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015304753352889791,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.561933"
+    },
+    {
+        "date": "2037-04-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015684395546830467,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.565701"
+    },
+    {
+        "date": "2037-05-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0160469390024323,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.569824"
+    },
+    {
+        "date": "2037-06-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01632048243129771,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.573543"
+    },
+    {
+        "date": "2037-06-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016259524886285667,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.577348"
+    },
+    {
+        "date": "2037-07-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016455797742720792,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.581194"
+    },
+    {
+        "date": "2037-08-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016909936124727513,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.585067"
+    },
+    {
+        "date": "2037-08-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016909936124727513,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.588910"
+    },
+    {
+        "date": "2037-09-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016455797742720792,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.592813"
+    },
+    {
+        "date": "2037-10-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016455797742720792,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.596742"
+    },
+    {
+        "date": "2037-10-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016455797742720792,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.600646"
+    },
+    {
+        "date": "2037-11-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016259524886285667,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.604620"
+    },
+    {
+        "date": "2037-12-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013992604000796917,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.608647"
+    },
+    {
+        "date": "2037-12-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014354652231953076,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.612935"
+    },
+    {
+        "date": "2038-01-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015247984360117433,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.616931"
+    },
+    {
+        "date": "2038-02-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014832418800536493,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.621612"
+    },
+    {
+        "date": "2038-03-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014354652231953076,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.625875"
+    },
+    {
+        "date": "2038-03-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013938628896227939,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.630371"
+    },
+    {
+        "date": "2038-04-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014062643066638129,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.634537"
+    },
+    {
+        "date": "2038-05-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014123408699551334,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.638856"
+    },
+    {
+        "date": "2038-05-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014029716565917994,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.643106"
+    },
+    {
+        "date": "2038-06-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01434854258050493,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.647557"
+    },
+    {
+        "date": "2038-07-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01434854258050493,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.652013"
+    },
+    {
+        "date": "2038-07-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01434854258050493,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.656640"
+    },
+    {
+        "date": "2038-08-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014824951448766539,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.661237"
+    },
+    {
+        "date": "2038-09-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015304099848424551,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.666048"
+    },
+    {
+        "date": "2038-09-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014824951448766539,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.670775"
+    },
+    {
+        "date": "2038-10-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014308299079624763,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.675082"
+    },
+    {
+        "date": "2038-11-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014308299079624763,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.679308"
+    },
+    {
+        "date": "2038-12-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01517996327975609,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.683460"
+    },
+    {
+        "date": "2038-12-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014308299079624763,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.687796"
+    },
+    {
+        "date": "2039-01-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.02011230684980293,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.691746"
+    },
+    {
+        "date": "2039-02-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.02011230684980293,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.695671"
+    },
+    {
+        "date": "2039-02-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019172861878875565,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.699554"
+    },
+    {
+        "date": "2039-03-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014413848249182652,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.703468"
+    },
+    {
+        "date": "2039-04-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015227869737114904,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.707370"
+    },
+    {
+        "date": "2039-04-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015227869737114904,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.711518"
+    },
+    {
+        "date": "2039-05-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01466070917934535,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.715413"
+    },
+    {
+        "date": "2039-06-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013724383062179138,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.719390"
+    },
+    {
+        "date": "2039-06-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014016711726503475,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.723360"
+    },
+    {
+        "date": "2039-07-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014016711726503475,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.727412"
+    },
+    {
+        "date": "2039-08-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014016711726503475,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.731350"
+    },
+    {
+        "date": "2039-08-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01466070917934535,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.735375"
+    },
+    {
+        "date": "2039-09-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013939419728533202,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.739430"
+    },
+    {
+        "date": "2039-10-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01382624621861865,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.743536"
+    },
+    {
+        "date": "2039-11-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014140149106110172,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.747532"
+    },
+    {
+        "date": "2039-11-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014278831224610534,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.751623"
+    },
+    {
+        "date": "2039-12-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014278831224610534,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.755680"
+    },
+    {
+        "date": "2040-01-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014140149106110172,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.759717"
+    },
+    {
+        "date": "2040-01-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014184363227091306,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.763765"
+    },
+    {
+        "date": "2040-02-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014184363227091306,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.767823"
+    },
+    {
+        "date": "2040-03-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014184363227091306,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.772372"
+    },
+    {
+        "date": "2040-03-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015748279439447538,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.776646"
+    },
+    {
+        "date": "2040-04-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015485940322432,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.780728"
+    },
+    {
+        "date": "2040-05-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01601721424025579,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.784562"
+    },
+    {
+        "date": "2040-05-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01574956977830195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.788592"
+    },
+    {
+        "date": "2040-06-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016364858856009593,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.792727"
+    },
+    {
+        "date": "2040-07-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01574956977830195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.796783"
+    },
+    {
+        "date": "2040-08-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016353918607199917,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.800839"
+    },
+    {
+        "date": "2040-08-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016353918607199917,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.805034"
+    },
+    {
+        "date": "2040-09-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016353918607199917,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.808920"
+    },
+    {
+        "date": "2040-10-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016549767631739376,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.812815"
+    },
+    {
+        "date": "2040-10-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016954568033807536,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.816835"
+    },
+    {
+        "date": "2040-11-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017290349806801487,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.820887"
+    },
+    {
+        "date": "2040-12-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018530985563327853,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.824661"
+    },
+    {
+        "date": "2040-12-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019088593162058375,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.828492"
+    },
+    {
+        "date": "2041-01-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018916634743916198,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.832425"
+    },
+    {
+        "date": "2041-02-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019088593162058375,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.836535"
+    },
+    {
+        "date": "2041-02-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019088593162058375,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.840526"
+    },
+    {
+        "date": "2041-03-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019088593162058375,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.844512"
+    },
+    {
+        "date": "2041-04-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019088593162058375,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.848561"
+    },
+    {
+        "date": "2041-05-01 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019151327120001983,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.852537"
+    },
+    {
+        "date": "2041-05-22 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.019151327120001983,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.856541"
+    },
+    {
+        "date": "2041-06-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01881161622955824,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.860507"
+    },
+    {
+        "date": "2041-07-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01852833518329169,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.864411"
+    },
+    {
+        "date": "2041-07-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018586972802565566,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.868496"
+    },
+    {
+        "date": "2041-08-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017551629434598617,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.872521"
+    },
+    {
+        "date": "2041-09-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01685079606471596,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.876375"
+    },
+    {
+        "date": "2041-09-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017168615275526967,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.880383"
+    },
+    {
+        "date": "2041-10-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017168615275526967,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.884396"
+    },
+    {
+        "date": "2041-11-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017168615275526967,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.888446"
+    },
+    {
+        "date": "2041-11-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017617357206040348,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.892286"
+    },
+    {
+        "date": "2041-12-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017391658701058188,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.896133"
+    },
+    {
+        "date": "2042-01-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01690528123820492,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.900140"
+    },
+    {
+        "date": "2042-01-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0170874667245201,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.904217"
+    },
+    {
+        "date": "2042-02-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0170874667245201,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.908242"
+    },
+    {
+        "date": "2042-03-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017220694432125403,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.912285"
+    },
+    {
+        "date": "2042-04-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016987229905282817,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.916337"
+    },
+    {
+        "date": "2042-04-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016865065023068494,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.920456"
+    },
+    {
+        "date": "2042-05-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016447485886845123,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.924242"
+    },
+    {
+        "date": "2042-06-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01587609908492912,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.928185"
+    },
+    {
+        "date": "2042-06-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01674822360247769,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.932355"
+    },
+    {
+        "date": "2042-07-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0170448200257821,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.936412"
+    },
+    {
+        "date": "2042-08-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0170448200257821,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.940367"
+    },
+    {
+        "date": "2042-08-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0170448200257821,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.944503"
+    },
+    {
+        "date": "2042-09-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01761640799696313,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.948490"
+    },
+    {
+        "date": "2042-10-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01761640799696313,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.952634"
+    },
+    {
+        "date": "2042-10-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017077888251403307,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.956489"
+    },
+    {
+        "date": "2042-11-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01674822360247769,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.960391"
+    },
+    {
+        "date": "2042-12-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016649431222139004,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.964339"
+    },
+    {
+        "date": "2042-12-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017433185096037338,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.968234"
+    },
+    {
+        "date": "2043-01-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017433185096037338,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.972289"
+    },
+    {
+        "date": "2043-02-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018073406388785806,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.976436"
+    },
+    {
+        "date": "2043-03-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018073406388785806,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.980589"
+    },
+    {
+        "date": "2043-03-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017117024739482324,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.984665"
+    },
+    {
+        "date": "2043-04-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018027434976726923,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.988770"
+    },
+    {
+        "date": "2043-05-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01732905585612005,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.992823"
+    },
+    {
+        "date": "2043-05-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01611090277407271,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:18.996988"
+    },
+    {
+        "date": "2043-06-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01732905585612005,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.001034"
+    },
+    {
+        "date": "2043-07-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017395058603761268,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.005262"
+    },
+    {
+        "date": "2043-07-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018251523272641366,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.009193"
+    },
+    {
+        "date": "2043-08-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018173564687146145,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.013187"
+    },
+    {
+        "date": "2043-09-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018123975316946796,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.017278"
+    },
+    {
+        "date": "2043-09-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018123975316946796,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.021365"
+    },
+    {
+        "date": "2043-10-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017502011488068108,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.025496"
+    },
+    {
+        "date": "2043-11-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01701455184003626,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.029640"
+    },
+    {
+        "date": "2043-12-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01686104218705308,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.033826"
+    },
+    {
+        "date": "2043-12-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01677162495246008,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.037896"
+    },
+    {
+        "date": "2044-01-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01677162495246008,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.041762"
+    },
+    {
+        "date": "2044-02-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016304714902726645,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.045705"
+    },
+    {
+        "date": "2044-02-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015391282920991897,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.049733"
+    },
+    {
+        "date": "2044-03-16 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015391282920991897,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.053845"
+    },
+    {
+        "date": "2044-04-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014500585246364925,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.057755"
+    },
+    {
+        "date": "2044-04-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014379738537210559,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.061870"
+    },
+    {
+        "date": "2044-05-18 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013690922435522,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.066067"
+    },
+    {
+        "date": "2044-06-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013690922435522,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.070252"
+    },
+    {
+        "date": "2044-06-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013690922435522,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.074175"
+    },
+    {
+        "date": "2044-07-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013347739286944108,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.078346"
+    },
+    {
+        "date": "2044-08-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.013514761073174723,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.082542"
+    },
+    {
+        "date": "2044-08-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014241581996767885,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.086794"
+    },
+    {
+        "date": "2044-09-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014295844578622815,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.090970"
+    },
+    {
+        "date": "2044-10-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014295844578622815,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.095190"
+    },
+    {
+        "date": "2044-11-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014352291905193213,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.099389"
+    },
+    {
+        "date": "2044-11-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014469803071797165,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.103646"
+    },
+    {
+        "date": "2044-12-14 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014690698712241004,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.107890"
+    },
+    {
+        "date": "2045-01-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014780787084713838,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.112484"
+    },
+    {
+        "date": "2045-01-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014866591293670153,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.116806"
+    },
+    {
+        "date": "2045-02-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015553739376055817,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.121163"
+    },
+    {
+        "date": "2045-03-08 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017139504470151043,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.125434"
+    },
+    {
+        "date": "2045-03-29 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017233545004658193,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.129810"
+    },
+    {
+        "date": "2045-04-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.018247138906608472,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.134009"
+    },
+    {
+        "date": "2045-05-10 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017543780956702195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.138406"
+    },
+    {
+        "date": "2045-05-31 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017543780956702195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.142551"
+    },
+    {
+        "date": "2045-06-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017543780956702195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.146771"
+    },
+    {
+        "date": "2045-07-12 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017543780956702195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.151106"
+    },
+    {
+        "date": "2045-08-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017794561508658484,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.155261"
+    },
+    {
+        "date": "2045-08-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017543780956702195,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.159492"
+    },
+    {
+        "date": "2045-09-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017794561508658484,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.163761"
+    },
+    {
+        "date": "2045-10-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01781831337304583,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.168059"
+    },
+    {
+        "date": "2045-10-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01787388592622506,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.172271"
+    },
+    {
+        "date": "2045-11-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01787388592622506,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.176434"
+    },
+    {
+        "date": "2045-12-06 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01787388592622506,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.180727"
+    },
+    {
+        "date": "2045-12-27 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017725064228660457,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.185088"
+    },
+    {
+        "date": "2046-01-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017725064228660457,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.189255"
+    },
+    {
+        "date": "2046-02-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017574127978978078,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.193427"
+    },
+    {
+        "date": "2046-02-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01685554439029286,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.197592"
+    },
+    {
+        "date": "2046-03-21 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01685554439029286,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.201830"
+    },
+    {
+        "date": "2046-04-11 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016085933551602656,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.206112"
+    },
+    {
+        "date": "2046-05-02 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016085933551602656,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.210456"
+    },
+    {
+        "date": "2046-05-23 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0156037211268296,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.214545"
+    },
+    {
+        "date": "2046-06-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015293357009606118,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.218876"
+    },
+    {
+        "date": "2046-07-04 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01480755812587659,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.223267"
+    },
+    {
+        "date": "2046-07-25 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014518544264784779,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.227616"
+    },
+    {
+        "date": "2046-08-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014518544264784779,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.232092"
+    },
+    {
+        "date": "2046-09-05 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.014518544264784779,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.236466"
+    },
+    {
+        "date": "2046-09-26 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01479712439713008,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.240590"
+    },
+    {
+        "date": "2046-10-17 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01479712439713008,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.245044"
+    },
+    {
+        "date": "2046-11-07 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0145157884645992,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.249197"
+    },
+    {
+        "date": "2046-11-28 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.01480418992564977,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.253557"
+    },
+    {
+        "date": "2046-12-19 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.015466586172730511,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.257841"
+    },
+    {
+        "date": "2047-01-09 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016737899075715722,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.262302"
+    },
+    {
+        "date": "2047-01-30 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0175564107404668,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.266866"
+    },
+    {
+        "date": "2047-02-20 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.0175564107404668,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.271512"
+    },
+    {
+        "date": "2047-03-13 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017504686964513308,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.275845"
+    },
+    {
+        "date": "2047-04-03 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017307909117690073,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.280325"
+    },
+    {
+        "date": "2047-04-24 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.017307909117690073,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.284423"
+    },
+    {
+        "date": "2047-05-15 00:00:00",
+        "asset": "Equity",
+        "signal_strength": 0.0,
+        "reason": "Stop Loss Triggered (DD: -5.33%)",
+        "VaR": -0.016574276334617676,
+        "position_size_allocated": 0.0,
+        "remaining_capital": 997453.8152831538,
+        "timestamp": "2026-05-06T11:18:19.288757"
+    }
+]
