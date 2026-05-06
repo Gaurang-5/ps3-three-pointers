@@ -150,7 +150,8 @@ class PositionSizer:
         final_weight = min(raw_weight, self.max_position_size)
 
         # Determine long/short/flat direction
-        direction = 1 if signal > 0 else (-1 if signal < 0 else 0)
+        # Modified: No short selling allowed. Negative signals simply liquidate to cash (0).
+        direction = 1 if signal > 0 else 0
 
         position_value = capital * final_weight * direction
         return position_value, final_weight * direction

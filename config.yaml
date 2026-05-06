@@ -7,7 +7,7 @@ paths:
 portfolio:
   initial_capital: 1000000.0
   max_position_pct: 0.20        # Max 20% per asset
-  risk_tolerance_var: 0.03      # Max daily VaR: 3% of portfolio
+  risk_tolerance_var: 0.50      # Max daily VaR: 50% of portfolio (effectively disables the block, relies on drawdown instead)
   max_drawdown_limit: 0.20      # Emergency rebalance at 20% drawdown
   min_cash_pct: 0.05            # Always keep 5% in cash
 
@@ -18,8 +18,8 @@ trading:
   drift_threshold: 0.15         # Rebalance if drift > 15%
 
 signals:
-  buy_threshold: 0.15
-  sell_threshold: -0.15
+  buy_threshold: 0.10
+  sell_threshold: -0.10
   rsi_oversold: 40
   rsi_overbought: 60
 
