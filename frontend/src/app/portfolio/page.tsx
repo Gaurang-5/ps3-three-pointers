@@ -17,11 +17,12 @@ export default function PortfolioPage() {
   const { data: signals } = useSWR('/api/signals', fetcher);
 
   const latest = Array.isArray(portfolio) ? portfolio.at(-1) : null;
+  const first = Array.isArray(portfolio) ? portfolio[0] : null;
   const totalValue = parseFloat(latest?.Total_Value ?? '1000000');
   const cash = parseFloat(latest?.Cash ?? '50000');
 
-  const donutData: any[] = [];
-  const assets: any[] = [];
+  const donutData: Array<{ name: string; value: number }> = [];
+  const assets: Array<{ ticker: string; weight: number; pnl: number; signal: string }> = [];
 
   const getLatestSignal = (ticker: string) => {
     if (!Array.isArray(signals)) return 'HOLD';
@@ -33,10 +34,13 @@ export default function PortfolioPage() {
     ['Equity', 'Oil', 'Gold', 'Bond'].forEach(asset => {
       const shares = parseFloat(latest[`${asset}_Shares`]) || 0;
       const price = parseFloat(latest[`${asset}_Price`]) || 0;
+      const initialPrice = parseFloat(first?.[`${asset}_Price`]) || price;
+      const assetPnl = initialPrice > 0 ? (price - initialPrice) / initialPrice : 0;
       const val = shares * price;
+      
       if (val > 10) {
         donutData.push({ name: asset, value: val });
-        assets.push({ ticker: asset, weight: val / totalValue, pnl: metrics?.['Total Return'] ?? 0, signal: getLatestSignal(asset) });
+        assets.push({ ticker: asset, weight: val / totalValue, pnl: assetPnl, signal: getLatestSignal(asset) });
       }
     });
   }
@@ -77,7 +81,7 @@ export default function PortfolioPage() {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(v: any) => formatCurrency(v as number)}
+                  formatter={(v: number) => formatCurrency(v)}
                   contentStyle={{ background: '#111', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12 }}
                   labelStyle={{ color: '#8A8A8E' }}
                 />
