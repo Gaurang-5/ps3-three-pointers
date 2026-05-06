@@ -11,15 +11,16 @@ portfolio:
   max_drawdown_limit: 0.20      # Defensive mode trigger at 20% drawdown
   min_cash_pct: 0.05            # Always keep 5% in cash
   strategic_weights:
-    Equity: 0.55
-    Bond: 0.30
-    Gold: 0.10
-    Oil: 0.05
+    Equity: 0.75
+    Bond: 0.20
+    Gold: 0.03
+    Oil: 0.02
   defensive_weights:
-    Equity: 0.20
+    Equity: 0.25
     Bond: 0.70
-    Gold: 0.10
+    Gold: 0.05
     Oil: 0.00
+  core_assets: ["Equity", "Bond"]
 
 trading:
   commission_rate: 0.0002       # 0.02%
