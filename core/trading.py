@@ -172,9 +172,7 @@ class SignalEngine:
         rsi_ob = cfg_sig.get('rsi_overbought', 65)
 
         # 1. Momentum (RSI)
-        # Note: RSI is currently only computed for Equity in features.py, 
-        # so we fallback to neutral 50 if missing for other assets.
-        rsi_col = 'RSI_14' if prefix == 'Equity_' else f'{prefix}RSI_14'
+        rsi_col = f'{prefix}RSI_14'
         rsi = row.get(rsi_col, 50)
         factors['rsi'] = float(rsi)
         
@@ -187,8 +185,8 @@ class SignalEngine:
                 reasons.append(f"RSI Overbought ({rsi:.1f})")
             
         # 2. Trend Alignment (SMA Cross)
-        sma50_col = 'SMA_50' if prefix == 'Equity_' else f'{prefix}SMA_50'
-        sma200_col = 'SMA_200' if prefix == 'Equity_' else f'{prefix}SMA_200'
+        sma50_col = f'{prefix}SMA_50'
+        sma200_col = f'{prefix}SMA_200'
         
         sma50 = row.get(sma50_col)
         sma200 = row.get(sma200_col)
@@ -218,7 +216,7 @@ class SignalEngine:
         final_signal = max(min(score, 1.0), -1.0)
         
         # 4. Volatility Filter
-        vol_col = 'Rolling_Vol_20' if prefix == 'Equity_' else f'{prefix}Rolling_Vol_20'
+        vol_col = f'{prefix}Rolling_Vol_20'
         vol = row.get(vol_col, 0.0)
         factors['volatility'] = float(vol)
         

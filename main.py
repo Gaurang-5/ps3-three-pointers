@@ -101,7 +101,8 @@ def run_simulation() -> None:
             if is_rebalance_day:
                 audit_logger.log_signal(date, asset, signal, reason, factors)
                 
-                # Check circuit breakers
+                # Handle Circuit Breakers
+                circuit_breaker = False
                 if len(pm.history) > 0:
                     current_dd = risk_modeler.calculate_drawdown(pd.Series([h['Total_Value'] for h in pm.history]))
                     
@@ -110,7 +111,7 @@ def run_simulation() -> None:
                         if signal > 0: signal = 0.0 # Block buys
                         
                     if current_dd < -config['portfolio']['max_drawdown_limit']:
-                        signal = 0.0 # Force to cash
+                        circuit_breaker = True
                         reason = f"Stop Loss Triggered (DD: {current_dd*100:.2f}%)"
                         audit_logger.log_risk_event(date, "Drawdown", current_dd, -config['portfolio']['max_drawdown_limit'])
                         
@@ -119,16 +120,26 @@ def run_simulation() -> None:
                 vol_col = f'{asset}_Rolling_Vol_20'
                 current_vol = row.get(vol_col, 0.0)
                 
-                target_value, _ = position_sizer.calculate_position_size(signal, current_vol, total_capital)
+                if circuit_breaker:
+                    target_value = 0.0  # Liquidate to cash
+                elif signal == 0.0:
+                    # HOLD current position, or rebalance to equal weight if drifted
+                    base_weight = 1.0 / len(current_prices) if current_prices else 0
+                    if drift_exceeded:
+                        target_value = total_capital * min(base_weight, config['portfolio']['max_position_pct'])
+                    else:
+                        target_value = pm.shares.get(asset, 0.0) * price # Hold current
+                else:
+                    target_value, _ = position_sizer.calculate_position_size(signal, current_vol, total_capital)
                 
                 # Execution
                 try:
                     tx_cost, shares_traded, exec_price = pm.execute_trade(asset, target_value, price, date)
                     
-                    if abs(shares_traded) > 0 or signal == 0:
+                    if abs(shares_traded) > 0:
                         audit_logger.log_trade(
                             date=date, ticker=asset,
-                            action='BUY' if shares_traded > 0 else ('SELL' if shares_traded < 0 else 'HOLD'),
+                            action='BUY' if shares_traded > 0 else 'SELL',
                             shares=pm.shares.get(asset, 0.0),
                             price=exec_price,
                             costs={"commission": tx_cost, "slippage": abs(shares_traded * (exec_price - price))},
