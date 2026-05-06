@@ -68,7 +68,7 @@ class TestDataValidation:
         }
         preprocessor = DataPreprocessor(paths)
         with pytest.raises(DataIngestionError):
-            preprocessor.load_data()
+            preprocessor.load_all_concurrent()
 
     def test_valid_data_loads_successfully(self, tmp_path):
         """Well-formed CSV with a Date column should load without errors."""
@@ -82,7 +82,7 @@ class TestDataValidation:
             'oil_data': str(good_csv),
         }
         preprocessor = DataPreprocessor(paths)
-        result = preprocessor.load_data()
+        result = preprocessor.load_all_concurrent()
         assert 'equity' in result
         assert len(result['equity']) == 2
 
@@ -259,7 +259,7 @@ class TestFeatureEngineering:
         df = self.make_sample_df()
         fe = FeatureEngineer(df)
         result = fe.generate_all_features()
-        for col in ['RSI_14', 'SMA_50', 'SMA_200', 'Rolling_Vol_20', 'Macro_Score']:
+        for col in ['Equity_RSI_14', 'Equity_SMA_50', 'Equity_SMA_200', 'Equity_Rolling_Vol_20', 'Macro_Score']:
             assert col in result.columns, f"Missing feature: {col}"
 
     def test_no_nan_after_feature_engineering(self):

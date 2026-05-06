@@ -1,8 +1,9 @@
+import os
 import yaml
 import logging
 import pandas as pd
-import json
-import os
+from typing import Dict, Any
+
 from core.data import DataPreprocessor
 from core.features import FeatureEngineer
 from core.portfolio import PortfolioManager, InsufficientCapitalError
@@ -14,14 +15,16 @@ from core.dashboard import DashboardExporter
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-def load_config(path='config.yaml'):
+def load_config(path='config.yaml') -> Dict[str, Any]:
     with open(path, 'r') as file:
         return yaml.safe_load(file)
 
-def run_simulation():
+def run_simulation() -> None:
     config = load_config()
     
-    # Data & Features Pipeline
+    # ---------------------------------------------------------
+    # Phase 1 & 2: Data & Features
+    # ---------------------------------------------------------
     logger.info("--- Phase 1: Data Ingestion & Preprocessing ---")
     preprocessor = DataPreprocessor(config['paths'])
     merged_data = preprocessor.prepare_data()
@@ -30,7 +33,9 @@ def run_simulation():
     fe = FeatureEngineer(merged_data)
     model_data = fe.generate_all_features()
     
-    # State Managers Initialization
+    # ---------------------------------------------------------
+    # Initialization
+    # ---------------------------------------------------------
     pm = PortfolioManager(
         initial_capital=config['portfolio']['initial_capital'],
         transaction_cost_pct=config['trading']['commission_rate'],
@@ -44,110 +49,116 @@ def run_simulation():
     
     position_sizer = PositionSizer(
         max_position_size=config['portfolio']['max_position_pct'],
-        target_volatility=0.10 # Hardcoded 10% target for stability
+        target_volatility=0.10
     )
     
     signal_engine = SignalEngine(config)
     
-    # Set up Log directory
-    log_dir = 'logs'
-    os.makedirs(log_dir, exist_ok=True)
-    audit_logger = AuditLogger(log_dir=log_dir)
+    os.makedirs('logs', exist_ok=True)
+    audit_logger = AuditLogger(log_dir='logs')
     
-    # Simulation Loop
-    logger.info("--- Phase 3: Trading Simulation ---")
+    # ---------------------------------------------------------
+    # Phase 3: Trading Simulation
+    # ---------------------------------------------------------
+    logger.info("--- Phase 3: Trading Simulation (Multi-Asset) ---")
     rebalance_freq = config['trading'].get('rebalance_frequency', 21)
+    drift_threshold = config['trading'].get('drift_threshold', 0.15)
     
     signal_history = []
+    assets = ['Equity', 'Oil', 'Gold', 'Bond']
     
     for i in range(len(model_data)):
         row = model_data.iloc[i]
-        date = model_data.index[i]
+        date = str(model_data.index[i].date())
         
-        current_prices = {
-            'Equity': row['Equity_Price']
-        }
-        
-        # Real-time risk calculations
+        # 1. Extract current prices for all available assets
+        current_prices = {}
+        for asset in assets:
+            price_col = f'{asset}_Price'
+            if price_col in row and pd.notna(row[price_col]):
+                current_prices[asset] = row[price_col]
+                
+        # 2. Daily Risk Overlay
         historical_returns = model_data['Equity_Returns'].iloc[:i+1]
         current_var = risk_modeler.calculate_historical_var(historical_returns)
-        current_vol = row.get('Rolling_Vol_20', 0.0)
         
-        # Determine signals
-        signal, reason, factors = signal_engine.generate_signals(row)
+        # Determine if we should trade today (Time-based or Drift-based)
+        # Note: If no history exists, we have no portfolio value yet, so we rebalance on day 1.
+        target_weights = {asset: 1.0/len(current_prices) for asset in current_prices} if current_prices else {}
+        drift_exceeded = len(pm.history) > 0 and pm.should_rebalance(target_weights, current_prices, drift_threshold)
+        is_rebalance_day = (i % rebalance_freq == 0) or drift_exceeded
         
-        signal_history.append({
-            'date': str(date),
-            'ticker': 'Equity',
-            'signal': 'BUY' if signal > 0 else ('SELL' if signal < 0 else 'HOLD'),
-            'composite_score': signal
-        })
-        
-        # Periodic Rebalancing
-        if i % rebalance_freq == 0:
-            audit_logger.log_signal(date, 'Equity', signal, reason, factors)
+        # We always process signals for heatmap generation, even if we don't execute trades
+        for asset, price in current_prices.items():
+            signal, reason, factors = signal_engine.generate_signals(row, prefix=f'{asset}_')
+            signal_history.append({
+                'date': date,
+                'ticker': asset,
+                'signal': 'BUY' if signal > 0 else ('SELL' if signal < 0 else 'HOLD'),
+                'composite_score': signal
+            })
             
-            # Risk Overlay: Hard Stop Loss Check
-            if len(pm.history) > 0:
-                current_dd = risk_modeler.calculate_drawdown(pd.Series([h['Total_Value'] for h in pm.history]))
+            if is_rebalance_day:
+                audit_logger.log_signal(date, asset, signal, reason, factors)
                 
-                # Check for risk breaches
-                if current_var < -config['portfolio']['risk_tolerance_var']:
-                    audit_logger.log_risk_event(date, "VaR", current_var, -config['portfolio']['risk_tolerance_var'])
+                # Check circuit breakers
+                if len(pm.history) > 0:
+                    current_dd = risk_modeler.calculate_drawdown(pd.Series([h['Total_Value'] for h in pm.history]))
                     
-                if current_dd < -config['portfolio']['max_drawdown_limit']:
-                    signal = 0.0
-                    reason = f"Stop Loss Triggered (DD: {current_dd*100:.2f}%)"
-                    audit_logger.log_risk_event(date, "Drawdown", current_dd, -config['portfolio']['max_drawdown_limit'])
+                    if current_var < -config['portfolio']['risk_tolerance_var']:
+                        audit_logger.log_risk_event(date, "VaR", current_var, -config['portfolio']['risk_tolerance_var'])
+                        if signal > 0: signal = 0.0 # Block buys
+                        
+                    if current_dd < -config['portfolio']['max_drawdown_limit']:
+                        signal = 0.0 # Force to cash
+                        reason = f"Stop Loss Triggered (DD: {current_dd*100:.2f}%)"
+                        audit_logger.log_risk_event(date, "Drawdown", current_dd, -config['portfolio']['max_drawdown_limit'])
+                        
+                # Sizing
+                total_capital = pm.get_total_value(current_prices)
+                vol_col = f'{asset}_Rolling_Vol_20'
+                current_vol = row.get(vol_col, 0.0)
+                
+                target_value, _ = position_sizer.calculate_position_size(signal, current_vol, total_capital)
+                
+                # Execution
+                try:
+                    tx_cost, shares_traded, exec_price = pm.execute_trade(asset, target_value, price, date)
                     
-            # Dynamic Sizing based on Volatility
-            total_capital = pm.get_total_value(current_prices)
-            target_value, target_weight = position_sizer.calculate_position_size(signal, current_vol, total_capital)
-            
-            # Execute
-            try:
-                tx_cost = pm.execute_trade('Equity', target_value, current_prices['Equity'], date)
-                
-                # Audit Logging
-                if tx_cost > 0 or signal == 0: # Log active trades or forced liquidations
-                    audit_logger.log_trade(
-                        date=date,
-                        ticker='Equity',
-                        action='BUY' if signal > 0 else ('SELL' if signal < 0 else 'HOLD'),
-                        shares=pm.shares.get('Equity', 0.0),
-                        price=current_prices['Equity'],
-                        costs={"commission": tx_cost, "slippage": tx_cost}, # Approximated here for struct
-                        portfolio_snapshot={"cash": pm.cash, "total_value": pm.get_total_value(current_prices)}
-                    )
-            except InsufficientCapitalError as e:
-                audit_logger.log_rejection(date, 'Equity', "INSUFFICIENT_CAPITAL", str(e))
-                logger.error(f"Simulation halted due to capital constraint: {e}")
-                break
-                
+                    if abs(shares_traded) > 0 or signal == 0:
+                        audit_logger.log_trade(
+                            date=date, ticker=asset,
+                            action='BUY' if shares_traded > 0 else ('SELL' if shares_traded < 0 else 'HOLD'),
+                            shares=pm.shares.get(asset, 0.0),
+                            price=exec_price,
+                            costs={"commission": tx_cost, "slippage": abs(shares_traded * (exec_price - price))},
+                            portfolio_snapshot={"cash": pm.cash, "total_value": pm.get_total_value(current_prices)}
+                        )
+                except InsufficientCapitalError as e:
+                    audit_logger.log_rejection(date, asset, "INSUFFICIENT_CAPITAL", str(e))
+                    
         # Daily Mark-to-Market
         pm.update_history(date, current_prices)
         
     audit_logger.export_summary()
     
-    # Final Metrics
+    # ---------------------------------------------------------
+    # Phase 4 & 5: Metrics & Exports
+    # ---------------------------------------------------------
     logger.info("--- Phase 4: Performance Evaluation ---")
     portfolio_df = pm.get_history_df()
-    benchmark_returns = model_data['Equity_Returns'] # Assume Equity asset is benchmark
+    benchmark_returns = model_data['Equity_Returns']
     
     metrics = PerformanceMetrics(portfolio_df, benchmark_returns, risk_free_rate=config['metrics']['risk_free_rate'])
     report = metrics.generate_report()
     
     logger.info("\n=== Final Performance Report ===")
     for k, v in report.items():
-        if 'Ratio' in k or k == 'Beta':
-            logger.info(f"{k}: {v:.4f}")
-        else:
-            logger.info(f"{k}: {v*100:.2f}%")
+        logger.info(f"{k}: {v:.4f}" if 'Ratio' in k or k == 'Beta' else f"{k}: {v*100:.2f}%")
             
-    # Dashboard Export
     logger.info("--- Phase 5: Generating Dashboard Exports ---")
     exporter = DashboardExporter(pm, report, signal_history, output_dir='output')
     exporter.export_all()
-        
+
 if __name__ == "__main__":
     run_simulation()

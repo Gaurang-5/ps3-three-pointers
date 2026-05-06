@@ -18,10 +18,10 @@ trading:
   drift_threshold: 0.15         # Rebalance if drift > 15%
 
 signals:
-  buy_threshold: 0.30
-  sell_threshold: -0.30
-  rsi_oversold: 35
-  rsi_overbought: 65
+  buy_threshold: 0.15
+  sell_threshold: -0.15
+  rsi_oversold: 40
+  rsi_overbought: 60
 
 risk:
   var_confidence: 0.95

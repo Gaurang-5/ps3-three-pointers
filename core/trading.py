@@ -1,23 +1,48 @@
-import pandas as pd
-import numpy as np
-import logging
+"""
+core/trading.py
+===============
+Stage 8 & 11: Signal Generation and Audit Logging.
+
+Resolves: Issue 8 (Signal Generation Engine), Issue 14 (Explainable Strategy Logs).
+
+The SignalEngine uses a multi-factor composite score to generate buy/sell signals
+for any supported asset. The AuditLogger records all decisions to JSONL files.
+"""
+
 import json
+import logging
 import os
 from datetime import datetime
+from typing import Dict, Tuple, Any
+
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+
 class AuditLogger:
-    def __init__(self, log_dir='./'):
+    """
+    Appends execution decisions, risk events, and data errors to JSONL files.
+    Ensures complete transparency for every trading decision (Issue 14).
+
+    Parameters
+    ----------
+    log_dir : str
+        Directory to store the log files.
+    """
+
+    def __init__(self, log_dir: str = './logs') -> None:
         self.log_dir = log_dir
-        self.trade_log_file = os.path.join(log_dir, 'trade_log.jsonl')
-        self.error_log_file = os.path.join(log_dir, 'error_log.jsonl')
+        os.makedirs(self.log_dir, exist_ok=True)
         
-        # Clear old logs
+        self.trade_log_file = os.path.join(self.log_dir, 'trade_log.jsonl')
+        self.error_log_file = os.path.join(self.log_dir, 'error_log.jsonl')
+        
+        # Truncate old logs on init
         open(self.trade_log_file, 'w').close()
         open(self.error_log_file, 'w').close()
         
-        self.counts = {
+        self.counts: Dict[str, int] = {
             'signals_generated': 0,
             'trades_executed': 0,
             'trades_rejected': 0,
@@ -25,24 +50,26 @@ class AuditLogger:
             'data_errors': 0
         }
         
-    def _write_jsonl(self, file_path, entry):
+    def _write_jsonl(self, file_path: str, entry: Dict[str, Any]) -> None:
         with open(file_path, 'a') as f:
             f.write(json.dumps(entry) + '\n')
             
-    def log_signal(self, date, ticker, signal_value, explanation, factors=None):
+    def log_signal(self, date: str, ticker: str, signal_value: float, explanation: str, factors: Dict[str, float] = None) -> None:
+        """Logs the rationale behind a generated trading signal."""
         self.counts['signals_generated'] += 1
         entry = {
             "timestamp": datetime.now().isoformat(),
             "date": str(date),
             "event_type": "SIGNAL",
             "ticker": ticker,
-            "signal_value": signal_value,
+            "signal_value": float(signal_value),
             "reason": explanation,
             "factors": factors or {}
         }
         self._write_jsonl(self.trade_log_file, entry)
 
-    def log_trade(self, date, ticker, action, shares, price, costs, portfolio_snapshot):
+    def log_trade(self, date: str, ticker: str, action: str, shares: float, price: float, costs: Dict[str, float], portfolio_snapshot: Dict[str, float]) -> None:
+        """Logs an executed trade, including slippage and commission costs."""
         self.counts['trades_executed'] += 1
         entry = {
             "timestamp": datetime.now().isoformat(),
@@ -50,14 +77,15 @@ class AuditLogger:
             "event_type": "TRADE_EXECUTED",
             "ticker": ticker,
             "action": action,
-            "shares": shares,
-            "price": price,
-            "costs": costs,
-            "portfolio_state": portfolio_snapshot
+            "shares": float(shares),
+            "price": float(price),
+            "costs": {k: float(v) for k, v in costs.items()},
+            "portfolio_state": {k: float(v) for k, v in portfolio_snapshot.items()}
         }
         self._write_jsonl(self.trade_log_file, entry)
 
-    def log_rejection(self, date, ticker, reason, details):
+    def log_rejection(self, date: str, ticker: str, reason: str, details: str) -> None:
+        """Logs a trade that was rejected due to constraints (e.g., insufficient capital)."""
         self.counts['trades_rejected'] += 1
         entry = {
             "timestamp": datetime.now().isoformat(),
@@ -69,65 +97,104 @@ class AuditLogger:
         }
         self._write_jsonl(self.error_log_file, entry)
 
-    def log_risk_event(self, date, metric, value, threshold):
+    def log_risk_event(self, date: str, metric: str, value: float, threshold: float) -> None:
+        """Logs a circuit breaker or risk limit breach."""
         self.counts['risk_events'] += 1
         entry = {
             "timestamp": datetime.now().isoformat(),
             "date": str(date),
             "event_type": "RISK_BREACH",
             "metric": metric,
-            "value": value,
-            "threshold": threshold
+            "value": float(value),
+            "threshold": float(threshold)
         }
         self._write_jsonl(self.error_log_file, entry)
 
-    def log_data_error(self, source, error, record=None):
+    def log_data_error(self, source: str, error: str, record: Any = None) -> None:
+        """Logs data anomalies or missing prices."""
         self.counts['data_errors'] += 1
         entry = {
             "timestamp": datetime.now().isoformat(),
             "event_type": "DATA_ERROR",
             "source": source,
             "error": str(error),
-            "record": record
+            "record": str(record)
         }
         self._write_jsonl(self.error_log_file, entry)
 
-    def export_summary(self):
+    def export_summary(self) -> Dict[str, int]:
+        """Dumps total counts of all events to summary_log.json."""
         summary_path = os.path.join(self.log_dir, 'summary_log.json')
         with open(summary_path, 'w') as f:
             json.dump(self.counts, f, indent=4)
         logger.info(f"Exported summary log to {summary_path}")
         return self.counts
 
+
 class SignalEngine:
-    def __init__(self, config=None):
+    """
+    Generates trading signals using technical and macro features.
+
+    Parameters
+    ----------
+    config : dict
+        Configuration loaded from config.yaml.
+    """
+
+    def __init__(self, config: Dict[str, Any] = None) -> None:
         self.config = config or {}
         
-    def generate_signals(self, row: pd.Series):
+    def generate_signals(self, row: pd.Series, prefix: str = 'Equity_') -> Tuple[float, str, Dict[str, float]]:
         """
-        Generates buy/sell/hold signals based on engineered features.
-        Returns a float between -1.0 (Strong Sell) and 1.0 (Strong Buy), and a reason string.
+        Generates buy/sell/hold signals based on engineered features for a specific asset.
+
+        Parameters
+        ----------
+        row : pd.Series
+            A single row of the feature-engineered market data.
+        prefix : str
+            The column prefix for the asset (e.g., 'Equity_', 'Oil_').
+
+        Returns
+        -------
+        tuple
+            (signal_value, reason_string, factors_dict)
+            Signal value is a float between -1.0 (Strong Sell) and 1.0 (Strong Buy).
         """
         score = 0.0
         reasons = []
         factors = {}
         
+        # Config thresholds
+        cfg_sig = self.config.get('signals', {})
+        buy_thresh = cfg_sig.get('buy_threshold', 0.3)
+        rsi_os = cfg_sig.get('rsi_oversold', 35)
+        rsi_ob = cfg_sig.get('rsi_overbought', 65)
+
         # 1. Momentum (RSI)
-        rsi = row.get('RSI_14', 50)
-        factors['rsi'] = rsi
-        if rsi < 35:
-            score += 0.4
-            reasons.append(f"RSI Oversold ({rsi:.1f})")
-        elif rsi > 65:
-            score -= 0.4
-            reasons.append(f"RSI Overbought ({rsi:.1f})")
+        # Note: RSI is currently only computed for Equity in features.py, 
+        # so we fallback to neutral 50 if missing for other assets.
+        rsi_col = 'RSI_14' if prefix == 'Equity_' else f'{prefix}RSI_14'
+        rsi = row.get(rsi_col, 50)
+        factors['rsi'] = float(rsi)
+        
+        if pd.notna(rsi):
+            if rsi < rsi_os:
+                score += 0.4
+                reasons.append(f"RSI Oversold ({rsi:.1f})")
+            elif rsi > rsi_ob:
+                score -= 0.4
+                reasons.append(f"RSI Overbought ({rsi:.1f})")
             
         # 2. Trend Alignment (SMA Cross)
-        sma50 = row.get('SMA_50')
-        sma200 = row.get('SMA_200')
-        price = row.get('Equity_Price')
+        sma50_col = 'SMA_50' if prefix == 'Equity_' else f'{prefix}SMA_50'
+        sma200_col = 'SMA_200' if prefix == 'Equity_' else f'{prefix}SMA_200'
         
-        if pd.notna(sma50) and pd.notna(sma200):
+        sma50 = row.get(sma50_col)
+        sma200 = row.get(sma200_col)
+        price = row.get(f'{prefix}Price')
+        
+        if pd.notna(sma50) and pd.notna(sma200) and pd.notna(price):
             if sma50 > sma200 and price > sma50:
                 score += 0.3
                 reasons.append("Bullish Trend")
@@ -135,32 +202,36 @@ class SignalEngine:
                 score -= 0.3
                 reasons.append("Bearish Trend")
                 
-        # 3. Macro Alignment
-        macro_score = row.get('Macro_Score', 0)
-        factors['macro_score'] = macro_score
-        if macro_score > 0.6:
-            score += 0.1
-            reasons.append(f"Favorable Macro ({macro_score:.2f})")
-        elif macro_score < 0.4:
-            score -= 0.1
-            reasons.append(f"Unfavorable Macro ({macro_score:.2f})")
+        # 3. Macro Alignment (Global across assets)
+        macro_score = row.get('Macro_Score', 0.5)
+        factors['macro_score'] = float(macro_score)
+        
+        if pd.notna(macro_score):
+            if macro_score > 0.6:
+                score += 0.1
+                reasons.append(f"Favorable Macro ({macro_score:.2f})")
+            elif macro_score < 0.4:
+                score -= 0.1
+                reasons.append(f"Unfavorable Macro ({macro_score:.2f})")
             
-        # Clip score between -1 and 1
+        # Clip score
         final_signal = max(min(score, 1.0), -1.0)
         
         # 4. Volatility Filter
-        vol = row.get('Rolling_Vol_20', 0)
-        factors['volatility'] = vol
-        if vol > 0.03: 
+        vol_col = 'Rolling_Vol_20' if prefix == 'Equity_' else f'{prefix}Rolling_Vol_20'
+        vol = row.get(vol_col, 0.0)
+        factors['volatility'] = float(vol)
+        
+        if pd.notna(vol) and vol > 0.03: 
             final_signal = 0.0
             reasons.append("Extreme Volatility - Holding Cash")
             
         reason_str = " | ".join(reasons) if reasons else "Neutral conditions"
         
-        # Thresholds
-        if abs(final_signal) < 0.3:
+        # Apply strict thresholds
+        if abs(final_signal) < buy_thresh:
             final_signal = 0.0
             
-        factors['composite_score'] = final_signal
+        factors['composite_score'] = float(final_signal)
             
         return final_signal, reason_str, factors
