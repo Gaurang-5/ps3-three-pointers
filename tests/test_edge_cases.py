@@ -135,6 +135,12 @@ class TestInsufficientCapital:
         with pytest.raises(InsufficientCapitalError):
             pm.execute_trade('Equity', 10_000.0, 100.0, '2024-01-01')
 
+    def test_min_cash_reserve_is_enforced(self):
+        """Buy orders must preserve configured minimum cash reserve."""
+        pm = make_portfolio(initial_capital=1_000.0)
+        pm.execute_trade('Equity', 1_000.0, 100.0, '2024-01-01', min_cash_reserve=200.0)
+        assert pm.cash >= 200.0 - 1e-6
+
 
 # ---------------------------------------------------------------------------
 # Issue 6 & 7: VaR and Drawdown (Circuit Breakers)
@@ -269,6 +275,33 @@ class TestFeatureEngineering:
         result = fe.generate_all_features()
         nan_cols = result.columns[result.isnull().any()].tolist()
         assert len(nan_cols) == 0, f"NaN found in columns: {nan_cols}"
+
+
+class TestSignalThresholding:
+    """Tests signal threshold behavior from config."""
+
+    def test_sell_threshold_applies_directionally(self):
+        config = {
+            'signals': {
+                'buy_threshold': 0.2,
+                'sell_threshold': -0.2,
+                'rsi_oversold': 35,
+                'rsi_overbought': 65
+            }
+        }
+        engine = SignalEngine(config)
+        row = pd.Series({
+            'Equity_RSI_14': 66.0,      # -0.4
+            'Equity_SMA_50': 100.0,
+            'Equity_SMA_200': 110.0,
+            'Equity_Price': 99.0,       # -0.3
+            'Equity_Momentum_10d': -0.02,  # -0.2
+            'Equity_Momentum_30d': -0.03,
+            'Macro_Score': 0.3,         # -0.1
+            'Equity_Rolling_Vol_20': 0.01
+        })
+        signal, _reason, _factors = engine.generate_signals(row, prefix='Equity_')
+        assert signal <= -0.2, f"Expected directional sell signal, got {signal}"
 
 
 if __name__ == '__main__':

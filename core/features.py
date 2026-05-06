@@ -5,8 +5,8 @@ Stage 3 & 4: Feature Engineering — Volatility, Momentum, and Macro Integration
 
 Resolves: Issue 3 (Volatility + Momentum Features), Issue 4 (Macro Integration).
 
-All features are computed using rolling windows with `min_periods` set to prevent
-NaN propagation. No future data is accessed — strict no-lookahead guarantee.
+All features are computed using rolling windows and only forward-looking-safe fills.
+No future data is accessed — strict no-lookahead guarantee.
 
 Features computed:
 - Rolling Volatility (21-day annualized)
@@ -57,7 +57,6 @@ class FeatureEngineer:
                 self.data[f'{pfx}Rolling_Vol_20'] = (
                     self.data[ret_col].rolling(window, min_periods=5).std()
                 )
-                self.data[f'{pfx}Rolling_Vol_20'] = self.data[f'{pfx}Rolling_Vol_20'].bfill()
         return self
 
     def add_momentum_rsi(self, window: int = 14) -> 'FeatureEngineer':
@@ -83,10 +82,10 @@ class FeatureEngineer:
             price_col = f'{pfx}Price'
             if price_col in self.data.columns:
                 self.data[f'{pfx}SMA_50'] = (
-                    self.data[price_col].rolling(short_window, min_periods=10).mean().bfill()
+                    self.data[price_col].rolling(short_window, min_periods=10).mean()
                 )
                 self.data[f'{pfx}SMA_200'] = (
-                    self.data[price_col].rolling(long_window, min_periods=20).mean().bfill()
+                    self.data[price_col].rolling(long_window, min_periods=20).mean()
                 )
         return self
 
@@ -147,5 +146,29 @@ class FeatureEngineer:
             .add_volume_zscore()
             .add_macro_alignment()
         )
-        self.data = self.data.ffill().bfill()
+        # Forward-fill only to avoid leaking future information into earlier rows.
+        self.data = self.data.ffill()
+
+        # Fill early-window NaNs with neutral values using only same-row information.
+        for pfx in self._get_prefixes():
+            price_col = f'{pfx}Price'
+            if price_col in self.data.columns:
+                if f'{pfx}SMA_50' in self.data.columns:
+                    self.data[f'{pfx}SMA_50'] = self.data[f'{pfx}SMA_50'].fillna(self.data[price_col])
+                if f'{pfx}SMA_200' in self.data.columns:
+                    self.data[f'{pfx}SMA_200'] = self.data[f'{pfx}SMA_200'].fillna(self.data[price_col])
+                if f'{pfx}Momentum_10d' in self.data.columns:
+                    self.data[f'{pfx}Momentum_10d'] = self.data[f'{pfx}Momentum_10d'].fillna(0.0)
+                if f'{pfx}Momentum_30d' in self.data.columns:
+                    self.data[f'{pfx}Momentum_30d'] = self.data[f'{pfx}Momentum_30d'].fillna(0.0)
+                if f'{pfx}Rolling_Vol_20' in self.data.columns:
+                    self.data[f'{pfx}Rolling_Vol_20'] = self.data[f'{pfx}Rolling_Vol_20'].fillna(0.0)
+                if f'{pfx}RSI_14' in self.data.columns:
+                    self.data[f'{pfx}RSI_14'] = self.data[f'{pfx}RSI_14'].fillna(50.0)
+                if f'{pfx}Volume_ZScore' in self.data.columns:
+                    self.data[f'{pfx}Volume_ZScore'] = self.data[f'{pfx}Volume_ZScore'].fillna(0.0)
+
+        if 'Macro_Score' in self.data.columns:
+            self.data['Macro_Score'] = self.data['Macro_Score'].fillna(0.5)
+
         return self.data

@@ -6,22 +6,36 @@ paths:
 
 portfolio:
   initial_capital: 1000000.0
-  max_position_pct: 0.20        # Max 20% per asset
-  risk_tolerance_var: 0.50      # Max daily VaR: 50% of portfolio (effectively disables the block, relies on drawdown instead)
-  max_drawdown_limit: 0.20      # Emergency rebalance at 20% drawdown
+  max_position_pct: 0.65        # Max 65% per asset (core Equity/Bond allocations)
+  risk_tolerance_var: 0.08      # Max daily portfolio VaR: 8%
+  max_drawdown_limit: 0.20      # Defensive mode trigger at 20% drawdown
   min_cash_pct: 0.05            # Always keep 5% in cash
+  strategic_weights:
+    Equity: 0.55
+    Bond: 0.30
+    Gold: 0.10
+    Oil: 0.05
+  defensive_weights:
+    Equity: 0.20
+    Bond: 0.70
+    Gold: 0.10
+    Oil: 0.00
 
 trading:
-  commission_rate: 0.001        # 0.1%
-  base_slippage: 0.0005         # 0.05%
-  rebalance_frequency: 21       # Monthly in days
-  drift_threshold: 0.15         # Rebalance if drift > 15%
+  commission_rate: 0.0002       # 0.02%
+  base_slippage: 0.0001         # 0.01%
+  rebalance_frequency: 21       # Rebalance monthly
+  drift_threshold: 0.20         # Rebalance if drift > 20%
+  use_drift_rebalance: false
+  drawdown_cooldown_days: 21    # Stay defensive for 1 month after breach
+  defensive_risky_budget: 0.20  # Max risky allocation in defensive mode
+  drawdown_recovery_buffer: 0.03 # Exit defensive mode once drawdown recovers by 3%
 
 signals:
-  buy_threshold: 0.10
-  sell_threshold: -0.10
-  rsi_oversold: 40
-  rsi_overbought: 60
+  buy_threshold: 0.20
+  sell_threshold: -0.20
+  rsi_oversold: 35
+  rsi_overbought: 65
 
 risk:
   var_confidence: 0.95

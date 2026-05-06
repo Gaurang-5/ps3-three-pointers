@@ -22,7 +22,7 @@ const pageTransition = {
   transition: { duration: 0.3, ease: 'easeOut' as const }
 };
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
   if (!active || !payload?.length) return null;
   return (
     <div className="glass-card p-3 text-xs" style={{ minWidth: 160 }}>
@@ -35,15 +35,16 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 export default function DashboardPage() {
   const { data: metrics } = useSWR('/api/metrics', fetcher, { refreshInterval: 30000 });
   const { data: portfolio } = useSWR('/api/portfolio', fetcher, { refreshInterval: 30000 });
+  const { data: logs } = useSWR('/api/logs', fetcher, { refreshInterval: 30000 });
 
   const [range, setRange] = useState<'1W' | '1M' | '3M' | 'ALL'>('ALL');
 
   const chartData = (() => {
     if (!portfolio || !Array.isArray(portfolio)) return [];
     const days = range === '1W' ? 7 : range === '1M' ? 21 : range === '3M' ? 63 : portfolio.length;
-    return portfolio.slice(-days).map((r: any) => ({
-      date: formatShortDate(r.Date),
-      value: parseFloat(r.Total_Value),
+    return portfolio.slice(-days).map((r: Record<string, string | number>) => ({
+      date: formatShortDate(r.Date as string),
+      value: parseFloat(r.Total_Value as string),
     }));
   })();
 
@@ -164,8 +165,10 @@ export default function DashboardPage() {
               <Activity size={16} style={{ color: 'var(--gain)' }} />
             </div>
             <div>
-              <div className="label">Total Signals Logged</div>
-              <div className="number text-white text-xl">10000+</div>
+              <div className="label">Total Trades Logged</div>
+              <div className="number text-white text-xl">
+                {logs?.trades_executed ? logs.trades_executed.toLocaleString() : '...'}
+              </div>
             </div>
           </GlassCard>
 
@@ -198,7 +201,7 @@ export default function DashboardPage() {
               <div className="label">Risk Breaches</div>
               <div className="text-[var(--warn)] text-sm font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--warn)' }} />
-                {varValue > 0.03 || totalReturn < -0.20 ? 'CIRCUIT BREAKER' : '0'}
+                {logs?.risk_events ? logs.risk_events.toLocaleString() : '0'}
               </div>
             </div>
           </GlassCard>

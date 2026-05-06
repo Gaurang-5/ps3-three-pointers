@@ -130,7 +130,8 @@ class PortfolioManager:
         asset: str,
         target_value: float,
         current_price: float,
-        date: str
+        date: str,
+        min_cash_reserve: float = 0.0
     ) -> Tuple[float, float, float]:
         """
         Executes a trade to adjust an asset's position to a target value.
@@ -148,6 +149,8 @@ class PortfolioManager:
             Current market price of the asset.
         date : str
             Current date string (for logging).
+        min_cash_reserve : float
+            Minimum cash balance that must remain after execution.
 
         Returns
         -------
@@ -174,14 +177,15 @@ class PortfolioManager:
         total_cash_impact = gross_cost + tx_cost
 
         # Capital safeguard: scale down if buying more than cash allows
-        if total_cash_impact > self.cash and direction > 0:
-            max_affordable_gross = self.cash / (1 + self.transaction_cost_pct)
+        if total_cash_impact > (self.cash - min_cash_reserve) and direction > 0:
+            available_cash = max(self.cash - min_cash_reserve, 0.0)
+            max_affordable_gross = available_cash / (1 + self.transaction_cost_pct)
             shares_to_trade = max_affordable_gross / executed_price
             gross_cost = shares_to_trade * executed_price
             tx_cost = abs(gross_cost) * self.transaction_cost_pct
             total_cash_impact = gross_cost + tx_cost
             logger.warning(f"[{date}] Insufficient capital. Scaled down trade for {asset}.")
-            if self.cash < 10:
+            if available_cash < 10:
                 raise InsufficientCapitalError(f"[{date}] Insufficient capital to trade.")
 
         # Update state

@@ -134,8 +134,8 @@ class DataPreprocessor:
         """
         Impute missing values without forward-looking bias.
 
-        - Prices: forward-fill ≤ ffill_limit consecutive days, then backward-fill.
-        - Rows still NaN after both passes are dropped.
+        - Prices: forward-fill ≤ ffill_limit consecutive days.
+        - Initial rows are never backward-filled to avoid lookahead leakage.
 
         Parameters
         ----------
@@ -144,7 +144,7 @@ class DataPreprocessor:
             Max consecutive days to forward-fill (default 5).
         """
         before = int(df.isnull().sum().sum())
-        df = df.ffill(limit=ffill_limit).bfill()
+        df = df.ffill(limit=ffill_limit)
         after = int(df.isnull().sum().sum())
         if before:
             logger.info(f"Imputed {before - after} missing values ({after} remaining).")
@@ -198,12 +198,15 @@ class DataPreprocessor:
             df = self.detect_and_handle_outliers(df, numeric_cols)
             dfs[key] = df.sort_values("Date").reset_index(drop=True)
 
-        # Left-join merge on Equity timeline (never drop market dates)
-        merged = dfs["equity"].copy()
-        for key in ("macro", "multi_asset", "oil"):
-            merged = pd.merge(merged, dfs[key], on="Date", how="left")
+        # Outer-join all timelines to preserve full historical/future ranges present in source data.
+        merged = None
+        for key in ("equity", "macro", "multi_asset", "oil"):
+            if merged is None:
+                merged = dfs[key].copy()
+            else:
+                merged = pd.merge(merged, dfs[key], on="Date", how="outer")
 
-        merged = merged.ffill().bfill()
+        merged = merged.sort_values("Date").ffill()
         merged = merged.drop_duplicates(subset=["Date"]).set_index("Date")
 
         logger.info(

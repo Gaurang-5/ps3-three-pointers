@@ -32,11 +32,13 @@ class PerformanceMetrics:
     ) -> None:
         self.df = portfolio_df.copy()
         if 'Date' in self.df.columns:
+            self.df['Date'] = pd.to_datetime(self.df['Date'])
             self.df = self.df.set_index('Date')
 
         self.df['Daily_Return'] = self.df['Total_Value'].pct_change().fillna(0)
         self.returns = self.df['Daily_Return']
-        self.benchmark_returns = benchmark_returns
+        self.benchmark_returns = benchmark_returns.copy()
+        self.benchmark_returns.index = pd.to_datetime(self.benchmark_returns.index)
         self.rf = risk_free_rate
         self.daily_rf = (1 + self.rf) ** (1 / 252) - 1
 

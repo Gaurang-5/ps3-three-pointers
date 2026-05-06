@@ -168,6 +168,7 @@ class SignalEngine:
         # Config thresholds
         cfg_sig = self.config.get('signals', {})
         buy_thresh = cfg_sig.get('buy_threshold', 0.3)
+        sell_thresh = cfg_sig.get('sell_threshold', -0.3)
         rsi_os = cfg_sig.get('rsi_oversold', 35)
         rsi_ob = cfg_sig.get('rsi_overbought', 65)
 
@@ -177,12 +178,12 @@ class SignalEngine:
         factors['rsi'] = float(rsi)
         
         if pd.notna(rsi):
-            if rsi < rsi_os:
-                score += 0.4
-                reasons.append(f"RSI Oversold ({rsi:.1f})")
-            elif rsi > rsi_ob:
-                score -= 0.4
-                reasons.append(f"RSI Overbought ({rsi:.1f})")
+            if rsi > rsi_ob:
+                score += 0.2
+                reasons.append(f"Strong Momentum (RSI: {rsi:.1f})")
+            elif rsi < rsi_os:
+                score -= 0.2
+                reasons.append(f"Weak Momentum (RSI: {rsi:.1f})")
             
         # 2. Trend Alignment (SMA Cross)
         sma50_col = f'{prefix}SMA_50'
@@ -194,11 +195,24 @@ class SignalEngine:
         
         if pd.notna(sma50) and pd.notna(sma200) and pd.notna(price):
             if sma50 > sma200 and price > sma50:
-                score += 0.3
+                score += 0.6
                 reasons.append("Bullish Trend")
             elif sma50 < sma200 and price < sma50:
-                score -= 0.3
+                score -= 0.6
                 reasons.append("Bearish Trend")
+
+        # 2b. Momentum Confirmation
+        mom10 = row.get(f'{prefix}Momentum_10d', 0.0)
+        mom30 = row.get(f'{prefix}Momentum_30d', 0.0)
+        factors['mom_10d'] = float(mom10) if pd.notna(mom10) else 0.0
+        factors['mom_30d'] = float(mom30) if pd.notna(mom30) else 0.0
+        if pd.notna(mom10) and pd.notna(mom30):
+            if mom10 > 0 and mom30 > 0:
+                score += 0.2
+                reasons.append("Positive Momentum")
+            elif mom10 < 0 and mom30 < 0:
+                score -= 0.2
+                reasons.append("Negative Momentum")
                 
         # 3. Macro Alignment (Global across assets)
         macro_score = row.get('Macro_Score', 0.5)
@@ -226,8 +240,11 @@ class SignalEngine:
             
         reason_str = " | ".join(reasons) if reasons else "Neutral conditions"
         
-        # Apply strict thresholds
-        if abs(final_signal) < buy_thresh:
+        # Apply directional thresholds
+        if sell_thresh > buy_thresh:
+            # Defensive fallback for invalid config
+            final_signal = 0.0
+        elif sell_thresh < final_signal < buy_thresh:
             final_signal = 0.0
             
         factors['composite_score'] = float(final_signal)
