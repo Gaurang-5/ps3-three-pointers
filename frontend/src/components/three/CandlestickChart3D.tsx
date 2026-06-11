@@ -1,6 +1,6 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+"use client";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 interface Candle {
   date: string;
@@ -21,8 +21,13 @@ function generateMockCandles(count = 30): Candle[] {
     const low = Math.min(open, close) - Math.random() * 2;
     price = close;
     return {
-      date: new Date(Date.now() - (count - i) * 86400000).toISOString().split('T')[0],
-      open, high, low, close,
+      date: new Date(Date.now() - (count - i) * 86400000)
+        .toISOString()
+        .split("T")[0],
+      open,
+      high,
+      low,
+      close,
     };
   });
 }
@@ -36,7 +41,11 @@ export default function CandlestickChart3D() {
     const w = canvas.offsetWidth || 600;
     const h = canvas.offsetHeight || 340;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+    });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(w, h);
     renderer.shadowMap.enabled = true;
@@ -54,20 +63,24 @@ export default function CandlestickChart3D() {
     scene.add(dir);
 
     const candles = generateMockCandles(30);
-    const priceMin = Math.min(...candles.map(c => c.low));
-    const priceRange = Math.max(...candles.map(c => c.high)) - priceMin;
+    const priceMin = Math.min(...candles.map((c) => c.low));
+    const priceRange = Math.max(...candles.map((c) => c.high)) - priceMin;
     const scale = 8 / priceRange;
 
     const meshes: THREE.Mesh[] = [];
 
     candles.forEach((day, i) => {
       const isUp = day.close >= day.open;
-      const color = isUp ? 0x34C759 : 0xFF3B30;
+      const color = isUp ? 0x34c759 : 0xff3b30;
       const bodyH = Math.max(Math.abs(day.close - day.open) * scale, 0.05);
       const midBody = ((day.open + day.close) / 2 - priceMin) * scale;
 
       const bodyGeo = new THREE.BoxGeometry(0.6, bodyH, 0.6);
-      const bodyMat = new THREE.MeshStandardMaterial({ color, roughness: 0.3, metalness: 0.6 });
+      const bodyMat = new THREE.MeshStandardMaterial({
+        color,
+        roughness: 0.3,
+        metalness: 0.6,
+      });
       const body = new THREE.Mesh(bodyGeo, bodyMat);
       body.position.set(i * 1.2, midBody, 0);
       body.castShadow = true;
@@ -78,7 +91,11 @@ export default function CandlestickChart3D() {
       const wickH = Math.max((day.high - day.low) * scale, 0.1);
       const wickGeo = new THREE.BoxGeometry(0.08, wickH, 0.08);
       const wick = new THREE.Mesh(wickGeo, bodyMat);
-      wick.position.set(i * 1.2, ((day.high + day.low) / 2 - priceMin) * scale, 0);
+      wick.position.set(
+        i * 1.2,
+        ((day.high + day.low) / 2 - priceMin) * scale,
+        0,
+      );
       scene.add(wick);
     });
 
@@ -89,9 +106,12 @@ export default function CandlestickChart3D() {
 
     // Mouse scroll zoom
     const onWheel = (e: WheelEvent) => {
-      camera.position.z = Math.max(10, Math.min(60, camera.position.z + e.deltaY * 0.05));
+      camera.position.z = Math.max(
+        10,
+        Math.min(60, camera.position.z + e.deltaY * 0.05),
+      );
     };
-    canvas.addEventListener('wheel', onWheel, { passive: true });
+    canvas.addEventListener("wheel", onWheel, { passive: true });
 
     let raf: number;
     const animate = () => {
@@ -102,11 +122,14 @@ export default function CandlestickChart3D() {
 
     return () => {
       cancelAnimationFrame(raf);
-      canvas.removeEventListener('wheel', onWheel);
-      meshes.forEach(m => { m.geometry.dispose(); (m.material as THREE.Material).dispose(); });
+      canvas.removeEventListener("wheel", onWheel);
+      meshes.forEach((m) => {
+        m.geometry.dispose();
+        (m.material as THREE.Material).dispose();
+      });
       renderer.dispose();
     };
   }, []);
 
-  return <canvas ref={canvasRef} style={{ width: '100%', height: 340 }} />;
+  return <canvas ref={canvasRef} style={{ width: "100%", height: 340 }} />;
 }

@@ -47,75 +47,85 @@ class FeatureEngineer:
         self.data = data.copy()
 
     def _get_prefixes(self) -> list[str]:
-        return ['Equity_', 'Oil_', 'Gold_', 'Bond_']
+        return ["Equity_", "Oil_", "Gold_", "Bond_"]
 
-    def add_rolling_volatility(self, window: int = 21) -> 'FeatureEngineer':
+    def add_rolling_volatility(self, window: int = 21) -> "FeatureEngineer":
         """Computes annualized rolling historical volatility from log returns."""
         for pfx in self._get_prefixes():
-            ret_col = f'{pfx}Returns'
+            ret_col = f"{pfx}Returns"
             if ret_col in self.data.columns:
-                self.data[f'{pfx}Rolling_Vol_20'] = (
+                self.data[f"{pfx}Rolling_Vol_20"] = (
                     self.data[ret_col].rolling(window, min_periods=5).std()
                 )
         return self
 
-    def add_momentum_rsi(self, window: int = 14) -> 'FeatureEngineer':
+    def add_momentum_rsi(self, window: int = 14) -> "FeatureEngineer":
         """Computes RSI using Wilder's smoothing for all assets."""
         for pfx in self._get_prefixes():
-            price_col = f'{pfx}Price'
+            price_col = f"{pfx}Price"
             if price_col not in self.data.columns:
                 continue
 
             delta = self.data[price_col].diff()
-            gain = delta.where(delta > 0, 0.0).rolling(window=window, min_periods=1).mean()
-            loss = (-delta.where(delta < 0, 0.0)).rolling(window=window, min_periods=1).mean()
+            gain = (
+                delta.where(delta > 0, 0.0).rolling(window=window, min_periods=1).mean()
+            )
+            loss = (
+                (-delta.where(delta < 0, 0.0))
+                .rolling(window=window, min_periods=1)
+                .mean()
+            )
 
             rs = gain / loss.replace(0, np.nan)
-            self.data[f'{pfx}RSI_14'] = (100 - (100 / (1 + rs))).fillna(50)
+            self.data[f"{pfx}RSI_14"] = (100 - (100 / (1 + rs))).fillna(50)
         return self
 
     def add_moving_averages(
         self, short_window: int = 50, long_window: int = 200
-    ) -> 'FeatureEngineer':
+    ) -> "FeatureEngineer":
         """Computes short and long SMAs for all assets."""
         for pfx in self._get_prefixes():
-            price_col = f'{pfx}Price'
+            price_col = f"{pfx}Price"
             if price_col in self.data.columns:
-                self.data[f'{pfx}SMA_50'] = (
+                self.data[f"{pfx}SMA_50"] = (
                     self.data[price_col].rolling(short_window, min_periods=10).mean()
                 )
-                self.data[f'{pfx}SMA_200'] = (
+                self.data[f"{pfx}SMA_200"] = (
                     self.data[price_col].rolling(long_window, min_periods=20).mean()
                 )
         return self
 
     def add_momentum(
         self, short_window: int = 10, long_window: int = 30
-    ) -> 'FeatureEngineer':
+    ) -> "FeatureEngineer":
         """Computes short and long-term price momentum for all assets."""
         for pfx in self._get_prefixes():
-            price_col = f'{pfx}Price'
+            price_col = f"{pfx}Price"
             if price_col in self.data.columns:
-                self.data[f'{pfx}Momentum_10d'] = self.data[price_col].pct_change(short_window)
-                self.data[f'{pfx}Momentum_30d'] = self.data[price_col].pct_change(long_window)
+                self.data[f"{pfx}Momentum_10d"] = self.data[price_col].pct_change(
+                    short_window
+                )
+                self.data[f"{pfx}Momentum_30d"] = self.data[price_col].pct_change(
+                    long_window
+                )
         return self
 
-    def add_volume_zscore(self, window: int = 20) -> 'FeatureEngineer':
+    def add_volume_zscore(self, window: int = 20) -> "FeatureEngineer":
         """Computes rolling volume Z-score for assets with volume."""
         for pfx in self._get_prefixes():
-            vol_col = f'{pfx}Volume'
+            vol_col = f"{pfx}Volume"
             if vol_col in self.data.columns:
                 roll_mean = self.data[vol_col].rolling(window, min_periods=5).mean()
                 roll_std = self.data[vol_col].rolling(window, min_periods=5).std()
-                self.data[f'{pfx}Volume_ZScore'] = (
+                self.data[f"{pfx}Volume_ZScore"] = (
                     (self.data[vol_col] - roll_mean) / roll_std.replace(0, np.nan)
                 ).fillna(0)
         return self
 
-    def add_macro_alignment(self) -> 'FeatureEngineer':
+    def add_macro_alignment(self) -> "FeatureEngineer":
         """Builds a composite Macro Score from macroeconomic indicators."""
-        macro_cols = ['Sentiment', 'Inflation', 'USD_Index']
-        weights = {'Sentiment': 1.0, 'Inflation': -0.5, 'USD_Index': -0.5}
+        macro_cols = ["Sentiment", "Inflation", "USD_Index"]
+        weights = {"Sentiment": 1.0, "Inflation": -0.5, "USD_Index": -0.5}
 
         score = pd.Series(0.0, index=self.data.index)
         available = []
@@ -132,14 +142,13 @@ class FeatureEngineer:
         if score.std() > 0:
             score = (score - score.min()) / (score.max() - score.min())
 
-        self.data['Macro_Score'] = score.fillna(0.5)
+        self.data["Macro_Score"] = score.fillna(0.5)
         return self
 
     def generate_all_features(self) -> pd.DataFrame:
         """Runs the complete feature engineering pipeline."""
         (
-            self
-            .add_rolling_volatility()
+            self.add_rolling_volatility()
             .add_momentum_rsi()
             .add_moving_averages()
             .add_momentum()
@@ -151,24 +160,36 @@ class FeatureEngineer:
 
         # Fill early-window NaNs with neutral values using only same-row information.
         for pfx in self._get_prefixes():
-            price_col = f'{pfx}Price'
+            price_col = f"{pfx}Price"
             if price_col in self.data.columns:
-                if f'{pfx}SMA_50' in self.data.columns:
-                    self.data[f'{pfx}SMA_50'] = self.data[f'{pfx}SMA_50'].fillna(self.data[price_col])
-                if f'{pfx}SMA_200' in self.data.columns:
-                    self.data[f'{pfx}SMA_200'] = self.data[f'{pfx}SMA_200'].fillna(self.data[price_col])
-                if f'{pfx}Momentum_10d' in self.data.columns:
-                    self.data[f'{pfx}Momentum_10d'] = self.data[f'{pfx}Momentum_10d'].fillna(0.0)
-                if f'{pfx}Momentum_30d' in self.data.columns:
-                    self.data[f'{pfx}Momentum_30d'] = self.data[f'{pfx}Momentum_30d'].fillna(0.0)
-                if f'{pfx}Rolling_Vol_20' in self.data.columns:
-                    self.data[f'{pfx}Rolling_Vol_20'] = self.data[f'{pfx}Rolling_Vol_20'].fillna(0.0)
-                if f'{pfx}RSI_14' in self.data.columns:
-                    self.data[f'{pfx}RSI_14'] = self.data[f'{pfx}RSI_14'].fillna(50.0)
-                if f'{pfx}Volume_ZScore' in self.data.columns:
-                    self.data[f'{pfx}Volume_ZScore'] = self.data[f'{pfx}Volume_ZScore'].fillna(0.0)
+                if f"{pfx}SMA_50" in self.data.columns:
+                    self.data[f"{pfx}SMA_50"] = self.data[f"{pfx}SMA_50"].fillna(
+                        self.data[price_col]
+                    )
+                if f"{pfx}SMA_200" in self.data.columns:
+                    self.data[f"{pfx}SMA_200"] = self.data[f"{pfx}SMA_200"].fillna(
+                        self.data[price_col]
+                    )
+                if f"{pfx}Momentum_10d" in self.data.columns:
+                    self.data[f"{pfx}Momentum_10d"] = self.data[
+                        f"{pfx}Momentum_10d"
+                    ].fillna(0.0)
+                if f"{pfx}Momentum_30d" in self.data.columns:
+                    self.data[f"{pfx}Momentum_30d"] = self.data[
+                        f"{pfx}Momentum_30d"
+                    ].fillna(0.0)
+                if f"{pfx}Rolling_Vol_20" in self.data.columns:
+                    self.data[f"{pfx}Rolling_Vol_20"] = self.data[
+                        f"{pfx}Rolling_Vol_20"
+                    ].fillna(0.0)
+                if f"{pfx}RSI_14" in self.data.columns:
+                    self.data[f"{pfx}RSI_14"] = self.data[f"{pfx}RSI_14"].fillna(50.0)
+                if f"{pfx}Volume_ZScore" in self.data.columns:
+                    self.data[f"{pfx}Volume_ZScore"] = self.data[
+                        f"{pfx}Volume_ZScore"
+                    ].fillna(0.0)
 
-        if 'Macro_Score' in self.data.columns:
-            self.data['Macro_Score'] = self.data['Macro_Score'].fillna(0.5)
+        if "Macro_Score" in self.data.columns:
+            self.data["Macro_Score"] = self.data["Macro_Score"].fillna(0.5)
 
         return self.data

@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from typing import Dict, Tuple
 
+
 class PerformanceMetrics:
     """
     Computes key performance indicators for the simulated portfolio.
@@ -25,18 +26,18 @@ class PerformanceMetrics:
     """
 
     def __init__(
-        self, 
-        portfolio_df: pd.DataFrame, 
-        benchmark_returns: pd.Series, 
-        risk_free_rate: float = 0.05
+        self,
+        portfolio_df: pd.DataFrame,
+        benchmark_returns: pd.Series,
+        risk_free_rate: float = 0.05,
     ) -> None:
         self.df = portfolio_df.copy()
-        if 'Date' in self.df.columns:
-            self.df['Date'] = pd.to_datetime(self.df['Date'])
-            self.df = self.df.set_index('Date')
+        if "Date" in self.df.columns:
+            self.df["Date"] = pd.to_datetime(self.df["Date"])
+            self.df = self.df.set_index("Date")
 
-        self.df['Daily_Return'] = self.df['Total_Value'].pct_change().fillna(0)
-        self.returns = self.df['Daily_Return']
+        self.df["Daily_Return"] = self.df["Total_Value"].pct_change().fillna(0)
+        self.returns = self.df["Daily_Return"]
         self.benchmark_returns = benchmark_returns.copy()
         self.benchmark_returns.index = pd.to_datetime(self.benchmark_returns.index)
         self.rf = risk_free_rate
@@ -70,8 +71,8 @@ class PerformanceMetrics:
         """Calculates total cumulative return."""
         if len(self.df) == 0:
             return 0.0
-        start_val = self.df['Total_Value'].iloc[0]
-        end_val = self.df['Total_Value'].iloc[-1]
+        start_val = self.df["Total_Value"].iloc[0]
+        end_val = self.df["Total_Value"].iloc[-1]
         return float((end_val / start_val) - 1.0)
 
     def calculate_alpha_beta(self) -> Tuple[float, float]:
@@ -102,10 +103,10 @@ class PerformanceMetrics:
         """Generates a comprehensive dictionary of all metrics."""
         alpha, beta = self.calculate_alpha_beta()
         return {
-            'Total Return': self.total_return(),
-            'Sharpe Ratio': self.sharpe_ratio(),
-            'Sortino Ratio': self.sortino_ratio(),
-            'Max Drawdown': self.max_drawdown(),
-            'Alpha': alpha,
-            'Beta': beta
+            "Total Return": self.total_return(),
+            "Sharpe Ratio": self.sharpe_ratio(),
+            "Sortino Ratio": self.sortino_ratio(),
+            "Max Drawdown": self.max_drawdown(),
+            "Alpha": alpha,
+            "Beta": beta,
         }

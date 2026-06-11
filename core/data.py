@@ -48,18 +48,24 @@ class DataPreprocessor:
     _DATASET_CONFIG: Dict[str, Dict] = {
         "equity": {
             "path_key": "equity_data",
-            "rename": {"Price": "Equity_Price", "Volume": "Equity_Volume", "Returns": "Equity_Returns"},
+            "rename": {
+                "Price": "Equity_Price",
+                "Volume": "Equity_Volume",
+                "Returns": "Equity_Returns",
+            },
         },
         "macro": {"path_key": "macro_data", "rename": {}},
         "multi_asset": {
-            "path_key": "multi_asset", 
-            "rename": {"Oil": "Oil_Price", "Gold": "Gold_Price", "Bonds": "Bond_Price",
-                       "Oil_Returns": "Oil_Returns", "Gold_Returns": "Gold_Returns"}
+            "path_key": "multi_asset",
+            "rename": {
+                "Oil": "Oil_Price",
+                "Gold": "Gold_Price",
+                "Bonds": "Bond_Price",
+                "Oil_Returns": "Oil_Returns",
+                "Gold_Returns": "Gold_Returns",
+            },
         },
-        "oil": {
-            "path_key": "oil_data",
-            "rename": {}
-        },
+        "oil": {"path_key": "oil_data", "rename": {}},
     }
 
     def __init__(self, config_paths: dict) -> None:
@@ -88,7 +94,9 @@ class DataPreprocessor:
         try:
             df = pd.read_csv(path, parse_dates=["Date"])
         except Exception as exc:
-            raise DataIngestionError(f"Cannot read [{name}] from '{path}': {exc}") from exc
+            raise DataIngestionError(
+                f"Cannot read [{name}] from '{path}': {exc}"
+            ) from exc
 
         self._validate_schema(df, name)
 
@@ -122,15 +130,19 @@ class DataPreprocessor:
         datasets: Dict[str, pd.DataFrame] = {}
         names = list(self._DATASET_CONFIG.keys())
 
-        with ThreadPoolExecutor(max_workers=len(names), thread_name_prefix="data_loader") as executor:
+        with ThreadPoolExecutor(
+            max_workers=len(names), thread_name_prefix="data_loader"
+        ) as executor:
             futures = {executor.submit(self._load_single, name): name for name in names}
             for future in as_completed(futures):
-                name, df = future.result()   # propagates DataIngestionError
+                name, df = future.result()  # propagates DataIngestionError
                 datasets[name] = df
 
         return datasets
 
-    def handle_missing_data(self, df: pd.DataFrame, ffill_limit: int = 5) -> pd.DataFrame:
+    def handle_missing_data(
+        self, df: pd.DataFrame, ffill_limit: int = 5
+    ) -> pd.DataFrame:
         """
         Impute missing values without forward-looking bias.
 
@@ -174,7 +186,12 @@ class DataPreprocessor:
                 continue
             mu, sigma = df[col].mean(), df[col].std()
             if sigma > 0:
-                n_clipped = int(((df[col] < mu - z_thresh * sigma) | (df[col] > mu + z_thresh * sigma)).sum())
+                n_clipped = int(
+                    (
+                        (df[col] < mu - z_thresh * sigma)
+                        | (df[col] > mu + z_thresh * sigma)
+                    ).sum()
+                )
                 if n_clipped:
                     logger.debug(f"Capped {n_clipped} outliers in '{col}'.")
                 df[col] = np.clip(df[col], mu - z_thresh * sigma, mu + z_thresh * sigma)

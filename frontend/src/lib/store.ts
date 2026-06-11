@@ -1,10 +1,10 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 export interface MetricsSummary {
-  'Total Return': number;
-  'Sharpe Ratio': number;
-  'Sortino Ratio': number;
-  'Max Drawdown': number;
+  "Total Return": number;
+  "Sharpe Ratio": number;
+  "Sortino Ratio": number;
+  "Max Drawdown": number;
   Alpha: number;
   Beta: number;
 }

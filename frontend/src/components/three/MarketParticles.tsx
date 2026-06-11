@@ -1,6 +1,6 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+"use client";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 export default function MarketParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -8,12 +8,21 @@ export default function MarketParticles() {
   useEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: false,
+    });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 200);
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      200,
+    );
     camera.position.z = 40;
 
     // 3000 particles
@@ -23,10 +32,10 @@ export default function MarketParticles() {
       positions[i] = (Math.random() - 0.5) * 80;
     }
     const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const mat = new THREE.PointsMaterial({
       size: 0.06,
-      color: 0x00D4AA,
+      color: 0x00d4aa,
       transparent: true,
       opacity: 0.18,
       blending: THREE.AdditiveBlending,
@@ -49,11 +58,11 @@ export default function MarketParticles() {
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
       geo.dispose();
       mat.dispose();
       renderer.dispose();

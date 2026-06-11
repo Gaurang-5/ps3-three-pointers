@@ -52,7 +52,11 @@ class RiskModeler:
             Estimated loss at the confidence level (a negative number).
         """
         if len(returns_series) < self.lookback:
-            return float(returns_series.quantile(1 - self.confidence_level)) if len(returns_series) > 0 else -0.05
+            return (
+                float(returns_series.quantile(1 - self.confidence_level))
+                if len(returns_series) > 0
+                else -0.05
+            )
 
         recent_returns = returns_series.tail(self.lookback)
         var = recent_returns.quantile(1 - self.confidence_level)
@@ -108,7 +112,9 @@ class PositionSizer:
         The annualized volatility target for the asset position.
     """
 
-    def __init__(self, max_position_size: float = 0.15, target_volatility: float = 0.10) -> None:
+    def __init__(
+        self, max_position_size: float = 0.15, target_volatility: float = 0.10
+    ) -> None:
         self.max_position_size = max_position_size
         self.target_volatility = target_volatility  # 10% annualized vol target
 

@@ -12,22 +12,29 @@ from core.trading import SignalEngine, AuditLogger
 from core.metrics import PerformanceMetrics
 from core.dashboard import DashboardExporter
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
 
-def load_config(path='config.yaml') -> Dict[str, Any]:
-    with open(path, 'r') as file:
+
+def load_config(path="config.yaml") -> Dict[str, Any]:
+    with open(path, "r") as file:
         return yaml.safe_load(file)
 
 
-def _compute_portfolio_risk(pm: PortfolioManager, risk_modeler: RiskModeler) -> tuple[float, float]:
+def _compute_portfolio_risk(
+    pm: PortfolioManager, risk_modeler: RiskModeler
+) -> tuple[float, float]:
     """Returns (historical_var, current_drawdown) using portfolio history."""
     if len(pm.history) < 2:
         return 0.0, 0.0
 
-    values = pd.Series([h['Total_Value'] for h in pm.history], dtype=float)
+    values = pd.Series([h["Total_Value"] for h in pm.history], dtype=float)
     returns = values.pct_change().dropna()
-    current_var = risk_modeler.calculate_historical_var(returns) if len(returns) > 0 else 0.0
+    current_var = (
+        risk_modeler.calculate_historical_var(returns) if len(returns) > 0 else 0.0
+    )
     current_dd = risk_modeler.calculate_drawdown(values)
     return float(current_var), float(current_dd)
 
@@ -51,13 +58,28 @@ def _build_target_weights(
     if not signals:
         return {}
 
-    base_map = strategic_weights or {'Equity': 0.55, 'Bond': 0.30, 'Gold': 0.10, 'Oil': 0.05}
-    defensive_map = defensive_weights or {'Equity': 0.20, 'Bond': 0.70, 'Gold': 0.10, 'Oil': 0.00}
-    core_assets = core_assets or {'Equity', 'Bond'}
+    base_map = strategic_weights or {
+        "Equity": 0.55,
+        "Bond": 0.30,
+        "Gold": 0.10,
+        "Oil": 0.05,
+    }
+    defensive_map = defensive_weights or {
+        "Equity": 0.20,
+        "Bond": 0.70,
+        "Gold": 0.10,
+        "Oil": 0.00,
+    }
+    core_assets = core_assets or {"Equity", "Bond"}
+    active_assets = set(signals)
     raw_scores: Dict[str, float] = {}
 
     for asset, signal in signals.items():
-        base = defensive_map.get(asset, 0.0) if defensive_mode else base_map.get(asset, 0.0)
+        base = (
+            defensive_map.get(asset, 0.0)
+            if defensive_mode
+            else base_map.get(asset, 0.0)
+        )
         if base <= 0:
             raw_scores[asset] = 0.0
             continue
@@ -73,26 +95,74 @@ def _build_target_weights(
         else:
             raw_scores[asset] = base
 
+    investable_budget = max(0.0, 1.0 - min_cash_pct)
+
     if defensive_mode:
-        raw_scores = {asset: (score if signals[asset] > 0 else 0.0) for asset, score in raw_scores.items()}
-        risky_budget = min(max(0.0, 1.0 - min_cash_pct), defensive_risky_budget)
+        strategic_active = {asset: base_map.get(asset, 0.0) for asset in active_assets}
+        defensive_active = {
+            asset: defensive_map.get(asset, 0.0) for asset in active_assets
+        }
+        risky_assets = {
+            asset
+            for asset in active_assets
+            if strategic_active.get(asset, 0.0) > defensive_active.get(asset, 0.0)
+        }
+        defensive_assets = active_assets - risky_assets
     else:
-        risky_budget = max(0.0, 1.0 - min_cash_pct)
+        risky_assets = set()
+        defensive_assets = set()
 
     total_raw = sum(raw_scores.values())
     if total_raw <= 0:
         return {asset: 0.0 for asset in signals}
 
-    normalized = {asset: (score / total_raw) * risky_budget for asset, score in raw_scores.items()}
+    normalized = {
+        asset: (score / total_raw) * investable_budget
+        for asset, score in raw_scores.items()
+    }
+
+    if defensive_mode:
+        risk_cap = min(max(0.0, defensive_risky_budget), investable_budget)
+        risky_total = sum(normalized.get(asset, 0.0) for asset in risky_assets)
+        if risky_total > risk_cap and risky_total > 0:
+            scale = risk_cap / risky_total
+            excess = 0.0
+            for asset in risky_assets:
+                old_weight = normalized.get(asset, 0.0)
+                normalized[asset] = old_weight * scale
+                excess += old_weight - normalized[asset]
+
+            defensive_denom = sum(
+                raw_scores.get(asset, 0.0) for asset in defensive_assets
+            )
+            if defensive_denom > 0:
+                for asset in defensive_assets:
+                    normalized[asset] = normalized.get(asset, 0.0) + (
+                        excess * raw_scores.get(asset, 0.0) / defensive_denom
+                    )
 
     # Cap concentration and redistribute leftover to uncapped assets.
-    capped = {asset: min(weight, max_position_pct) for asset, weight in normalized.items()}
-    leftover = risky_budget - sum(capped.values())
+    capped = {
+        asset: min(weight, max_position_pct) for asset, weight in normalized.items()
+    }
+    leftover = investable_budget - sum(capped.values())
 
     for _ in range(len(capped)):
         if leftover <= 1e-9:
             break
-        eligible = [a for a in capped if capped[a] < max_position_pct - 1e-9 and raw_scores[a] > 0]
+        if defensive_mode:
+            eligible = [
+                a
+                for a in defensive_assets
+                if capped.get(a, 0.0) < max_position_pct - 1e-9
+                and raw_scores.get(a, 0.0) > 0
+            ]
+        else:
+            eligible = [
+                a
+                for a in capped
+                if capped[a] < max_position_pct - 1e-9 and raw_scores[a] > 0
+            ]
         if not eligible:
             break
         denom = sum(raw_scores[a] for a in eligible)
@@ -111,75 +181,82 @@ def _build_target_weights(
 
     return capped
 
+
 def run_simulation() -> None:
     config = load_config()
-    
+
     # ---------------------------------------------------------
     # Phase 1 & 2: Data & Features
     # ---------------------------------------------------------
     logger.info("--- Phase 1: Data Ingestion & Preprocessing ---")
-    preprocessor = DataPreprocessor(config['paths'])
+    preprocessor = DataPreprocessor(config["paths"])
     merged_data = preprocessor.prepare_data()
-    
+
     logger.info("--- Phase 2: Feature Engineering ---")
     fe = FeatureEngineer(merged_data)
     model_data = fe.generate_all_features()
-    
+
     # ---------------------------------------------------------
     # Initialization
     # ---------------------------------------------------------
     pm = PortfolioManager(
-        initial_capital=config['portfolio']['initial_capital'],
-        transaction_cost_pct=config['trading']['commission_rate'],
-        slippage_pct=config['trading']['base_slippage']
+        initial_capital=config["portfolio"]["initial_capital"],
+        transaction_cost_pct=config["trading"]["commission_rate"],
+        slippage_pct=config["trading"]["base_slippage"],
     )
-    
+
     risk_modeler = RiskModeler(
-        confidence_level=config['risk']['var_confidence'],
-        lookback=config['risk']['var_lookback_days']
+        confidence_level=config["risk"]["var_confidence"],
+        lookback=config["risk"]["var_lookback_days"],
     )
-    
+
     signal_engine = SignalEngine(config)
-    
-    os.makedirs('logs', exist_ok=True)
-    audit_logger = AuditLogger(log_dir='logs')
-    
+
+    os.makedirs("logs", exist_ok=True)
+    audit_logger = AuditLogger(log_dir="logs")
+
     # ---------------------------------------------------------
     # Phase 3: Trading Simulation
     # ---------------------------------------------------------
     logger.info("--- Phase 3: Trading Simulation (Multi-Asset) ---")
-    rebalance_freq = config['trading'].get('rebalance_frequency', 21)
-    drift_threshold = config['trading'].get('drift_threshold', 0.15)
-    drawdown_cooldown_days = config['trading'].get('drawdown_cooldown_days', rebalance_freq)
-    defensive_risky_budget = config['trading'].get('defensive_risky_budget', 0.30)
-    drawdown_recovery_buffer = config['trading'].get('drawdown_recovery_buffer', 0.02)
-    use_drift_rebalance = config['trading'].get('use_drift_rebalance', False)
-    strategic_weights = config['portfolio'].get('strategic_weights', {'Equity': 0.55, 'Bond': 0.30, 'Gold': 0.10, 'Oil': 0.05})
-    defensive_weights = config['portfolio'].get('defensive_weights', {'Equity': 0.20, 'Bond': 0.70, 'Gold': 0.10, 'Oil': 0.00})
-    core_assets = set(config['portfolio'].get('core_assets', ['Equity', 'Bond']))
+    rebalance_freq = config["trading"].get("rebalance_frequency", 21)
+    drift_threshold = config["trading"].get("drift_threshold", 0.15)
+    drawdown_cooldown_days = config["trading"].get(
+        "drawdown_cooldown_days", rebalance_freq
+    )
+    defensive_risky_budget = config["trading"].get("defensive_risky_budget", 0.30)
+    drawdown_recovery_buffer = config["trading"].get("drawdown_recovery_buffer", 0.02)
+    use_drift_rebalance = config["trading"].get("use_drift_rebalance", False)
+    strategic_weights = config["portfolio"].get(
+        "strategic_weights", {"Equity": 0.55, "Bond": 0.30, "Gold": 0.10, "Oil": 0.05}
+    )
+    defensive_weights = config["portfolio"].get(
+        "defensive_weights", {"Equity": 0.20, "Bond": 0.70, "Gold": 0.10, "Oil": 0.00}
+    )
+    core_assets = set(config["portfolio"].get("core_assets", ["Equity", "Bond"]))
 
     signal_history = []
-    assets = ['Equity', 'Oil', 'Gold', 'Bond']
+    assets = ["Equity", "Oil", "Gold", "Bond"]
     drawdown_cooldown_until = -1
-    min_cash_pct = config['portfolio'].get('min_cash_pct', 0.05)
+    min_cash_pct = config["portfolio"].get("min_cash_pct", 0.05)
     min_cash_reserve = pm.initial_capital * min_cash_pct
-    buy_threshold = config.get('signals', {}).get('buy_threshold', 0.3)
-    sell_threshold = config.get('signals', {}).get('sell_threshold', -0.3)
-    max_position_pct = config['portfolio']['max_position_pct']
-    var_threshold = config['portfolio']['risk_tolerance_var']
-    drawdown_limit = config['portfolio']['max_drawdown_limit']
-    
+    buy_threshold = config.get("signals", {}).get("buy_threshold", 0.3)
+    sell_threshold = config.get("signals", {}).get("sell_threshold", -0.3)
+    max_position_pct = config["portfolio"]["max_position_pct"]
+    var_threshold = config["portfolio"]["risk_tolerance_var"]
+    drawdown_limit = config["portfolio"]["max_drawdown_limit"]
+
     for i in range(len(model_data)):
         row = model_data.iloc[i]
         date = str(model_data.index[i].date())
-        
+
         # 1. Extract current prices for all available assets
         current_prices = {}
         for asset in assets:
-            price_col = f'{asset}_Price'
+            price_col = f"{asset}_Price"
             if price_col in row and pd.notna(row[price_col]):
                 current_prices[asset] = row[price_col]
-                
+
         # 2. Daily Risk Overlay (portfolio-based, not single-asset proxy)
         current_var, current_dd = _compute_portfolio_risk(pm, risk_modeler)
 
@@ -194,10 +271,13 @@ def run_simulation() -> None:
         in_defensive_mode = i <= drawdown_cooldown_until
 
         # Determine if we should trade today (time-based and drift-aware).
-        baseline_weights = {asset: strategic_weights.get(asset, 0.0) for asset in current_prices}
+        baseline_weights = {
+            asset: strategic_weights.get(asset, 0.0) for asset in current_prices
+        }
         drift_exceeded = (
-            use_drift_rebalance and len(pm.history) > 0 and
-            pm.should_rebalance(baseline_weights, current_prices, drift_threshold)
+            use_drift_rebalance
+            and len(pm.history) > 0
+            and pm.should_rebalance(baseline_weights, current_prices, drift_threshold)
         )
         is_rebalance_day = (i % rebalance_freq == 0) or drift_exceeded
 
@@ -205,15 +285,21 @@ def run_simulation() -> None:
         raw_signals: Dict[str, float] = {}
         signal_meta: Dict[str, tuple[str, Dict[str, float]]] = {}
         for asset, _price in current_prices.items():
-            signal, reason, factors = signal_engine.generate_signals(row, prefix=f'{asset}_')
+            signal, reason, factors = signal_engine.generate_signals(
+                row, prefix=f"{asset}_"
+            )
             raw_signals[asset] = float(signal)
             signal_meta[asset] = (reason, factors)
-            signal_history.append({
-                'date': date,
-                'ticker': asset,
-                'signal': 'BUY' if signal > 0 else ('SELL' if signal < 0 else 'HOLD'),
-                'composite_score': signal
-            })
+            signal_history.append(
+                {
+                    "date": date,
+                    "ticker": asset,
+                    "signal": (
+                        "BUY" if signal > 0 else ("SELL" if signal < 0 else "HOLD")
+                    ),
+                    "composite_score": signal,
+                }
+            )
 
         if is_rebalance_day and current_prices:
             if current_var < -var_threshold:
@@ -247,7 +333,9 @@ def run_simulation() -> None:
             for asset, price in current_prices.items():
                 target_value = total_capital * target_weights.get(asset, 0.0)
                 current_value = pm.shares.get(asset, 0.0) * price
-                orders.append((asset, price, target_value, target_value - current_value))
+                orders.append(
+                    (asset, price, target_value, target_value - current_value)
+                )
 
             # Execute sells first so buys can use released cash.
             orders.sort(key=lambda x: x[3])
@@ -260,50 +348,59 @@ def run_simulation() -> None:
                         target_value,
                         price,
                         date,
-                        min_cash_reserve=min_cash_reserve
+                        min_cash_reserve=min_cash_reserve,
                     )
 
                     if abs(shares_traded) > 0:
                         audit_logger.log_trade(
                             date=date,
                             ticker=asset,
-                            action='BUY' if shares_traded > 0 else 'SELL',
+                            action="BUY" if shares_traded > 0 else "SELL",
                             shares=shares_traded,
                             price=exec_price,
                             costs={
                                 "commission": tx_cost,
-                                "slippage": abs(shares_traded * (exec_price - price))
+                                "slippage": abs(shares_traded * (exec_price - price)),
                             },
                             portfolio_snapshot={
                                 "cash": pm.cash,
-                                "total_value": pm.get_total_value(current_prices)
-                            }
+                                "total_value": pm.get_total_value(current_prices),
+                            },
                         )
                 except InsufficientCapitalError as e:
-                    audit_logger.log_rejection(date, asset, "INSUFFICIENT_CAPITAL", str(e))
-                    
+                    audit_logger.log_rejection(
+                        date, asset, "INSUFFICIENT_CAPITAL", str(e)
+                    )
+
         # Daily Mark-to-Market
         pm.update_history(date, current_prices)
-        
+
     audit_logger.export_summary()
-    
+
     # ---------------------------------------------------------
     # Phase 4 & 5: Metrics & Exports
     # ---------------------------------------------------------
     logger.info("--- Phase 4: Performance Evaluation ---")
     portfolio_df = pm.get_history_df()
-    benchmark_returns = model_data['Equity_Returns']
-    
-    metrics = PerformanceMetrics(portfolio_df, benchmark_returns, risk_free_rate=config['metrics']['risk_free_rate'])
+    benchmark_returns = model_data["Equity_Returns"]
+
+    metrics = PerformanceMetrics(
+        portfolio_df,
+        benchmark_returns,
+        risk_free_rate=config["metrics"]["risk_free_rate"],
+    )
     report = metrics.generate_report()
-    
+
     logger.info("\n=== Final Performance Report ===")
     for k, v in report.items():
-        logger.info(f"{k}: {v:.4f}" if 'Ratio' in k or k == 'Beta' else f"{k}: {v*100:.2f}%")
-            
+        logger.info(
+            f"{k}: {v:.4f}" if "Ratio" in k or k == "Beta" else f"{k}: {v*100:.2f}%"
+        )
+
     logger.info("--- Phase 5: Generating Dashboard Exports ---")
-    exporter = DashboardExporter(pm, report, signal_history, output_dir='output')
+    exporter = DashboardExporter(pm, report, signal_history, output_dir="output")
     exporter.export_all()
+
 
 if __name__ == "__main__":
     run_simulation()

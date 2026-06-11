@@ -31,11 +31,12 @@ from core.risk import RiskModeler, PositionSizer
 from core.trading import SignalEngine
 from core.features import FeatureEngineer
 from core.metrics import PerformanceMetrics
-
+from main import _build_target_weights
 
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
+
 
 def make_portfolio(initial_capital: float = 1_000_000.0) -> PortfolioManager:
     """Creates a fresh PortfolioManager for each test."""
@@ -52,6 +53,7 @@ def make_returns_series(n: int = 100, seed: int = 42) -> pd.Series:
 # Issue 16: Data Validation & Invalid Formats
 # ---------------------------------------------------------------------------
 
+
 class TestDataValidation:
     """Tests schema validation and malformed input handling (Issue 16)."""
 
@@ -61,10 +63,10 @@ class TestDataValidation:
         bad_csv.write_text("Price,Volume\n100,1000\n101,1100\n")
 
         paths = {
-            'equity_data': str(bad_csv),
-            'macro_data': str(bad_csv),
-            'multi_asset': str(bad_csv),
-            'oil_data': str(bad_csv),
+            "equity_data": str(bad_csv),
+            "macro_data": str(bad_csv),
+            "multi_asset": str(bad_csv),
+            "oil_data": str(bad_csv),
         }
         preprocessor = DataPreprocessor(paths)
         with pytest.raises(DataIngestionError):
@@ -73,23 +75,26 @@ class TestDataValidation:
     def test_valid_data_loads_successfully(self, tmp_path):
         """Well-formed CSV with a Date column should load without errors."""
         good_csv = tmp_path / "good.csv"
-        good_csv.write_text("Date,Price,Volume\n2024-01-01,100,1000\n2024-01-02,101,1100\n")
+        good_csv.write_text(
+            "Date,Price,Volume\n2024-01-01,100,1000\n2024-01-02,101,1100\n"
+        )
 
         paths = {
-            'equity_data': str(good_csv),
-            'macro_data': str(good_csv),
-            'multi_asset': str(good_csv),
-            'oil_data': str(good_csv),
+            "equity_data": str(good_csv),
+            "macro_data": str(good_csv),
+            "multi_asset": str(good_csv),
+            "oil_data": str(good_csv),
         }
         preprocessor = DataPreprocessor(paths)
         result = preprocessor.load_all_concurrent()
-        assert 'equity' in result
-        assert len(result['equity']) == 2
+        assert "equity" in result
+        assert len(result["equity"]) == 2
 
 
 # ---------------------------------------------------------------------------
 # Issue 2: Missing Data Handling
 # ---------------------------------------------------------------------------
+
 
 class TestMissingDataHandling:
     """Tests forward-fill / backward-fill strategies (Issue 2)."""
@@ -97,26 +102,40 @@ class TestMissingDataHandling:
     def test_ffill_fills_short_gaps(self):
         """Short gaps (≤5 days) should be forward-filled without bias."""
         preprocessor = DataPreprocessor({})
-        df = pd.DataFrame({
-            'Date': pd.date_range('2024-01-01', periods=10),
-            'Price': [100, np.nan, np.nan, np.nan, 104, np.nan, 106, 107, np.nan, 109]
-        })
+        df = pd.DataFrame(
+            {
+                "Date": pd.date_range("2024-01-01", periods=10),
+                "Price": [
+                    100,
+                    np.nan,
+                    np.nan,
+                    np.nan,
+                    104,
+                    np.nan,
+                    106,
+                    107,
+                    np.nan,
+                    109,
+                ],
+            }
+        )
         result = preprocessor.handle_missing_data(df)
-        assert result['Price'].isnull().sum() == 0
+        assert result["Price"].isnull().sum() == 0
 
     def test_outlier_capping_clips_extreme_values(self):
         """Values beyond 3σ should be capped at the boundary."""
         preprocessor = DataPreprocessor({})
         values = [100.0] * 98 + [100000.0, -100000.0]  # two extreme outliers
-        df = pd.DataFrame({'Price': values})
-        result = preprocessor.detect_and_handle_outliers(df, ['Price'], z_thresh=3.0)
-        assert result['Price'].max() < 100000.0
-        assert result['Price'].min() > -100000.0
+        df = pd.DataFrame({"Price": values})
+        result = preprocessor.detect_and_handle_outliers(df, ["Price"], z_thresh=3.0)
+        assert result["Price"].max() < 100000.0
+        assert result["Price"].min() > -100000.0
 
 
 # ---------------------------------------------------------------------------
 # Issue 15: Insufficient Capital Errors
 # ---------------------------------------------------------------------------
+
 
 class TestInsufficientCapital:
     """Tests capital safeguards during trade execution (Issue 15)."""
@@ -125,7 +144,7 @@ class TestInsufficientCapital:
         """Portfolio should scale down rather than crash when capital is tight."""
         pm = make_portfolio(initial_capital=1000.0)
         # Attempting to buy $50,000 worth with only $1,000 capital
-        tx_cost = pm.execute_trade('Equity', 50_000.0, 100.0, '2024-01-01')
+        tx_cost = pm.execute_trade("Equity", 50_000.0, 100.0, "2024-01-01")
         # Should succeed (scaled down) and not crash; allow tiny float error
         assert pm.cash >= -1e-9
 
@@ -133,18 +152,19 @@ class TestInsufficientCapital:
         """Trade on a $5 portfolio should raise InsufficientCapitalError."""
         pm = PortfolioManager(initial_capital=5.0)
         with pytest.raises(InsufficientCapitalError):
-            pm.execute_trade('Equity', 10_000.0, 100.0, '2024-01-01')
+            pm.execute_trade("Equity", 10_000.0, 100.0, "2024-01-01")
 
     def test_min_cash_reserve_is_enforced(self):
         """Buy orders must preserve configured minimum cash reserve."""
         pm = make_portfolio(initial_capital=1_000.0)
-        pm.execute_trade('Equity', 1_000.0, 100.0, '2024-01-01', min_cash_reserve=200.0)
+        pm.execute_trade("Equity", 1_000.0, 100.0, "2024-01-01", min_cash_reserve=200.0)
         assert pm.cash >= 200.0 - 1e-6
 
 
 # ---------------------------------------------------------------------------
 # Issue 6 & 7: VaR and Drawdown (Circuit Breakers)
 # ---------------------------------------------------------------------------
+
 
 class TestRiskCircuitBreakers:
     """Tests VaR computation and drawdown circuit breaker (Issues 6, 7, 20)."""
@@ -184,36 +204,82 @@ class TestRiskCircuitBreakers:
 # Issue 5: Portfolio State Management
 # ---------------------------------------------------------------------------
 
+
 class TestPortfolioStateManagement:
     """Tests portfolio value tracking and daily update logic (Issue 5)."""
 
     def test_initial_value_equals_capital(self):
         """Before any trades, total value should equal initial capital."""
         pm = make_portfolio(1_000_000.0)
-        total = pm.get_total_value({'Equity': 100.0})
+        total = pm.get_total_value({"Equity": 100.0})
         assert total == pytest.approx(1_000_000.0)
 
     def test_history_snapshots_correctly(self):
         """update_history should add one record per call."""
         pm = make_portfolio()
-        pm.update_history('2024-01-01', {'Equity': 100.0})
-        pm.update_history('2024-01-02', {'Equity': 101.0})
+        pm.update_history("2024-01-01", {"Equity": 100.0})
+        pm.update_history("2024-01-02", {"Equity": 101.0})
         df = pm.get_history_df()
         assert len(df) == 2
-        assert 'Total_Value' in df.columns
+        assert "Total_Value" in df.columns
+
+
+class TestAssetAllocation:
+    """Tests multi-asset allocation targets and defensive risk budgeting."""
+
+    def test_strategic_weights_keep_all_assets_allocated(self):
+        signals = {"Equity": 0.0, "Oil": 0.0, "Gold": 0.0, "Bond": 0.0}
+        weights = _build_target_weights(
+            signals,
+            buy_threshold=0.2,
+            sell_threshold=-0.2,
+            max_position_pct=0.65,
+            min_cash_pct=0.05,
+            strategic_weights={"Equity": 0.75, "Bond": 0.20, "Gold": 0.03, "Oil": 0.02},
+            defensive_weights={"Equity": 0.25, "Bond": 0.70, "Gold": 0.05, "Oil": 0.00},
+            core_assets={"Equity", "Bond"},
+        )
+
+        assert sum(weights.values()) == pytest.approx(0.95)
+        assert weights["Equity"] <= 0.65
+        assert weights["Bond"] > 0
+        assert weights["Gold"] > 0
+        assert weights["Oil"] > 0
+
+    def test_defensive_mode_caps_risky_assets_without_zeroing_safe_assets(self):
+        signals = {"Equity": -0.8, "Oil": -0.8, "Gold": -0.8, "Bond": -0.8}
+        weights = _build_target_weights(
+            signals,
+            buy_threshold=0.2,
+            sell_threshold=-0.2,
+            max_position_pct=0.65,
+            min_cash_pct=0.05,
+            strategic_weights={"Equity": 0.75, "Bond": 0.20, "Gold": 0.03, "Oil": 0.02},
+            defensive_weights={"Equity": 0.25, "Bond": 0.70, "Gold": 0.05, "Oil": 0.00},
+            core_assets={"Equity", "Bond"},
+            defensive_mode=True,
+            defensive_risky_budget=0.20,
+        )
+
+        assert sum(weights.values()) == pytest.approx(0.95)
+        assert weights["Equity"] <= 0.20
+        assert weights["Oil"] == pytest.approx(0.0)
+        assert weights["Bond"] > 0
+        assert weights["Gold"] > 0
 
 
 # ---------------------------------------------------------------------------
 # Issue 10 & 12: Transaction Costs and Sharpe Ratio
 # ---------------------------------------------------------------------------
 
+
 class TestMetrics:
     """Tests performance metric calculations (Issues 10, 12, 13)."""
 
     def test_sharpe_on_positive_returns(self):
         """Consistently positive returns should yield a positive Sharpe Ratio."""
-        values = pd.Series([1_000_000.0 * (1.001 ** i) for i in range(252)])
-        df = pd.DataFrame({'Total_Value': values})
+        values = pd.Series([1_000_000.0 * (1.001**i) for i in range(252)])
+        df = pd.DataFrame({"Total_Value": values})
         benchmark = pd.Series([0.0005] * 252)
         metrics = PerformanceMetrics(df, benchmark, risk_free_rate=0.02)
         sharpe = metrics.sharpe_ratio()
@@ -222,7 +288,7 @@ class TestMetrics:
     def test_max_drawdown_on_declining_portfolio(self):
         """A portfolio that falls 30% should report max_drawdown ≈ −0.30."""
         values = pd.Series([1_000_000.0 - i * 3000 for i in range(100)])
-        df = pd.DataFrame({'Total_Value': values})
+        df = pd.DataFrame({"Total_Value": values})
         benchmark = pd.Series([0.0] * 100)
         metrics = PerformanceMetrics(df, benchmark)
         dd = metrics.max_drawdown()
@@ -231,7 +297,7 @@ class TestMetrics:
     def test_alpha_beta_types(self):
         """Alpha and Beta should be floats."""
         values = pd.Series([1_000_000.0 * (1 + 0.001 * i) for i in range(100)])
-        df = pd.DataFrame({'Total_Value': values})
+        df = pd.DataFrame({"Total_Value": values})
         benchmark = pd.Series(np.random.normal(0.0005, 0.01, 100))
         metrics = PerformanceMetrics(df, benchmark)
         alpha, beta = metrics.calculate_alpha_beta()
@@ -243,6 +309,7 @@ class TestMetrics:
 # Issue 3: Feature Engineering — No Lookahead
 # ---------------------------------------------------------------------------
 
+
 class TestFeatureEngineering:
     """Tests feature engineering correctness and no-lookahead guarantee (Issue 3)."""
 
@@ -250,14 +317,17 @@ class TestFeatureEngineering:
         """Creates a minimal DataFrame matching pipeline output format."""
         prices = 100 + np.cumsum(np.random.normal(0, 1, n))
         returns = pd.Series(prices).pct_change().fillna(0).values
-        df = pd.DataFrame({
-            'Equity_Price': prices,
-            'Equity_Returns': returns,
-            'Equity_Volume': np.random.randint(100_000, 1_000_000, n).astype(float),
-            'Sentiment': np.random.uniform(0, 1, n),
-            'Inflation': np.random.uniform(0, 5, n),
-            'USD_Index': np.random.uniform(90, 110, n),
-        }, index=pd.date_range('2020-01-01', periods=n))
+        df = pd.DataFrame(
+            {
+                "Equity_Price": prices,
+                "Equity_Returns": returns,
+                "Equity_Volume": np.random.randint(100_000, 1_000_000, n).astype(float),
+                "Sentiment": np.random.uniform(0, 1, n),
+                "Inflation": np.random.uniform(0, 5, n),
+                "USD_Index": np.random.uniform(90, 110, n),
+            },
+            index=pd.date_range("2020-01-01", periods=n),
+        )
         return df
 
     def test_all_features_created(self):
@@ -265,7 +335,13 @@ class TestFeatureEngineering:
         df = self.make_sample_df()
         fe = FeatureEngineer(df)
         result = fe.generate_all_features()
-        for col in ['Equity_RSI_14', 'Equity_SMA_50', 'Equity_SMA_200', 'Equity_Rolling_Vol_20', 'Macro_Score']:
+        for col in [
+            "Equity_RSI_14",
+            "Equity_SMA_50",
+            "Equity_SMA_200",
+            "Equity_Rolling_Vol_20",
+            "Macro_Score",
+        ]:
             assert col in result.columns, f"Missing feature: {col}"
 
     def test_no_nan_after_feature_engineering(self):
@@ -282,27 +358,29 @@ class TestSignalThresholding:
 
     def test_sell_threshold_applies_directionally(self):
         config = {
-            'signals': {
-                'buy_threshold': 0.2,
-                'sell_threshold': -0.2,
-                'rsi_oversold': 35,
-                'rsi_overbought': 65
+            "signals": {
+                "buy_threshold": 0.2,
+                "sell_threshold": -0.2,
+                "rsi_oversold": 35,
+                "rsi_overbought": 65,
             }
         }
         engine = SignalEngine(config)
-        row = pd.Series({
-            'Equity_RSI_14': 66.0,      # -0.4
-            'Equity_SMA_50': 100.0,
-            'Equity_SMA_200': 110.0,
-            'Equity_Price': 99.0,       # -0.3
-            'Equity_Momentum_10d': -0.02,  # -0.2
-            'Equity_Momentum_30d': -0.03,
-            'Macro_Score': 0.3,         # -0.1
-            'Equity_Rolling_Vol_20': 0.01
-        })
-        signal, _reason, _factors = engine.generate_signals(row, prefix='Equity_')
+        row = pd.Series(
+            {
+                "Equity_RSI_14": 66.0,  # -0.4
+                "Equity_SMA_50": 100.0,
+                "Equity_SMA_200": 110.0,
+                "Equity_Price": 99.0,  # -0.3
+                "Equity_Momentum_10d": -0.02,  # -0.2
+                "Equity_Momentum_30d": -0.03,
+                "Macro_Score": 0.3,  # -0.1
+                "Equity_Rolling_Vol_20": 0.01,
+            }
+        )
+        signal, _reason, _factors = engine.generate_signals(row, prefix="Equity_")
         assert signal <= -0.2, f"Expected directional sell signal, got {signal}"
 
 
-if __name__ == '__main__':
-    pytest.main([__file__, '-v', '--tb=short'])
+if __name__ == "__main__":
+    pytest.main([__file__, "-v", "--tb=short"])

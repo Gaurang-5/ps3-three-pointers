@@ -1,7 +1,7 @@
 {
     "signals_generated": 1908,
-    "trades_executed": 931,
-    "trades_rejected": 0,
-    "risk_events": 433,
+    "trades_executed": 1842,
+    "trades_rejected": 10,
+    "risk_events": 55,
     "data_errors": 0
 }

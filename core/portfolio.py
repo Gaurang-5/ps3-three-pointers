@@ -17,9 +17,12 @@ from typing import Dict, Tuple, List
 
 logger = logging.getLogger(__name__)
 
+
 class InsufficientCapitalError(Exception):
     """Raised when there is not enough cash to execute a trade."""
+
     pass
+
 
 class PortfolioManager:
     """
@@ -39,7 +42,7 @@ class PortfolioManager:
         self,
         initial_capital: float = 1_000_000.0,
         transaction_cost_pct: float = 0.001,
-        slippage_pct: float = 0.0005
+        slippage_pct: float = 0.0005,
     ) -> None:
         self.initial_capital = initial_capital
         self.cash = initial_capital
@@ -93,7 +96,7 @@ class PortfolioManager:
         self,
         target_weights: Dict[str, float],
         current_prices: Dict[str, float],
-        drift_threshold: float = 0.15
+        drift_threshold: float = 0.15,
     ) -> bool:
         """
         Determines if the portfolio has drifted beyond acceptable limits (Issue 11).
@@ -113,16 +116,16 @@ class PortfolioManager:
             True if any asset deviates from its target by > drift_threshold.
         """
         current_weights = self.get_current_weights(current_prices)
-        
+
         # Check drift for all assets (both in targets and current holdings)
         all_assets = set(target_weights.keys()).union(set(self.shares.keys()))
-        
+
         for asset in all_assets:
             target = target_weights.get(asset, 0.0)
             current = current_weights.get(asset, 0.0)
             if abs(current - target) > drift_threshold:
                 return True
-                
+
         return False
 
     def execute_trade(
@@ -131,7 +134,7 @@ class PortfolioManager:
         target_value: float,
         current_price: float,
         date: str,
-        min_cash_reserve: float = 0.0
+        min_cash_reserve: float = 0.0,
     ) -> Tuple[float, float, float]:
         """
         Executes a trade to adjust an asset's position to a target value.
@@ -184,14 +187,18 @@ class PortfolioManager:
             gross_cost = shares_to_trade * executed_price
             tx_cost = abs(gross_cost) * self.transaction_cost_pct
             total_cash_impact = gross_cost + tx_cost
-            logger.warning(f"[{date}] Insufficient capital. Scaled down trade for {asset}.")
+            logger.warning(
+                f"[{date}] Insufficient capital. Scaled down trade for {asset}."
+            )
             if available_cash < 10:
-                raise InsufficientCapitalError(f"[{date}] Insufficient capital to trade.")
+                raise InsufficientCapitalError(
+                    f"[{date}] Insufficient capital to trade."
+                )
 
         # Update state
         self.cash -= total_cash_impact
         self.shares[asset] = self.shares.get(asset, 0.0) + shares_to_trade
-        
+
         # Clean up zero-share positions
         if abs(self.shares[asset]) < 1e-6:
             self.shares[asset] = 0.0
@@ -210,16 +217,12 @@ class PortfolioManager:
             Current prices of all assets.
         """
         total_val = self.get_total_value(current_prices)
-        snapshot = {
-            'Date': date,
-            'Total_Value': total_val,
-            'Cash': self.cash
-        }
+        snapshot = {"Date": date, "Total_Value": total_val, "Cash": self.cash}
         # Record shares and prices for all held and tracked assets
         for asset, price in current_prices.items():
-            snapshot[f'{asset}_Shares'] = self.shares.get(asset, 0.0)
-            snapshot[f'{asset}_Price'] = price
-            
+            snapshot[f"{asset}_Shares"] = self.shares.get(asset, 0.0)
+            snapshot[f"{asset}_Price"] = price
+
         self.history.append(snapshot)
 
     def get_history_df(self) -> pd.DataFrame:
