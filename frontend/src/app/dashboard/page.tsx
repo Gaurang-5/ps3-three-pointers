@@ -18,6 +18,7 @@ import {
   formatCurrency,
   formatPercent,
   formatShortDate,
+  formatDate,
 } from "@/lib/formatters";
 import { TrendingUp, Activity, Wallet, AlertTriangle } from "lucide-react";
 
@@ -49,7 +50,7 @@ const CustomTooltip = ({
   if (!active || !payload?.length) return null;
   return (
     <div className="glass-card p-3 text-xs" style={{ minWidth: 160 }}>
-      <div className="label mb-1">{label}</div>
+      <div className="label mb-1">{label ? formatDate(label) : ""}</div>
       <div className="number text-white">
         {formatCurrency(payload[0]?.value)}
       </div>
@@ -81,7 +82,7 @@ export default function DashboardPage() {
             ? 63
             : portfolio.length;
     return portfolio.slice(-days).map((r: Record<string, string | number>) => ({
-      date: formatShortDate(r.Date as string),
+      date: r.Date as string,
       value: parseFloat(r.Total_Value as string),
     }));
   })();
@@ -186,6 +187,7 @@ export default function DashboardPage() {
               />
               <XAxis
                 dataKey="date"
+                tickFormatter={(v) => formatShortDate(v)}
                 tick={{ fill: "#48484A", fontSize: 10 }}
                 axisLine={false}
                 tickLine={false}
